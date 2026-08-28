@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { bestChoices, whatToAvoid, metalExplainer } from "@/lib/bookingCopy";
+import BookingFlow from "./BookingFlow";
 
 export const metadata: Metadata = {
   title: "Book Now — Precision Dexa",
@@ -36,42 +37,8 @@ export default function BookPage() {
       </section>
 
       <section style={{ padding: "0 clamp(20px,5vw,56px) clamp(64px,8vw,104px)" }}>
-        <div
-          style={{
-            maxWidth: 1000,
-            margin: "0 auto",
-            background: "#fff",
-            border: "1px dashed #C6B18E",
-            minHeight: "clamp(360px,42vw,520px)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 12,
-            textAlign: "center",
-            padding: 40,
-          }}
-        >
-          <svg
-            width="28"
-            height="28"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#C6B18E"
-            strokeWidth="1.4"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <rect x="3" y="4" width="18" height="17"></rect>
-            <path d="M8 2v4M16 2v4M3 10h18"></path>
-          </svg>
-          <p style={{ margin: 0, font: "400 20px/1.4 Georgia,serif", color: "#0D3B66" }}>
-            Booking coming soon
-          </p>
-          <p style={{ margin: 0, maxWidth: "44ch", font: "400 14.5px/1.65 var(--font-inter),sans-serif", color: "#8A8378" }}>
-            The booking flow is being built right now — check back shortly, or call{" "}
-            <a href="tel:3606063117">360.606.3117</a> to schedule directly.
-          </p>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <BookingFlow />
         </div>
       </section>
 

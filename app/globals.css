@@ -1,0 +1,100 @@
+:root {
+  --pdx-blue: #0d3b66;
+  --pdx-blue-hover: #12507f;
+  --pdx-green: #5e7f6b;
+  --pdx-tan: #c6b18e;
+  --pdx-sand: #e7e1d6;
+  --pdx-mist: #f7f7f5;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--pdx-mist);
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--pdx-blue);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--pdx-green);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--pdx-tan);
+  color: var(--pdx-blue);
+}
+
+:focus-visible {
+  outline: 2px solid var(--pdx-green);
+  outline-offset: 3px;
+}
+
+@keyframes pdxIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1040px) {
+  [data-navlinks] {
+    display: none !important;
+  }
+  [data-burger] {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1041px) {
+  [data-mobilemenu] {
+    display: none !important;
+  }
+}
+
+[data-navlinks] button,
+[data-cta] {
+  white-space: nowrap;
+}
+
+.pdx-main {
+  animation: pdxIn 0.5s ease both;
+}
+
+/* Shared button/link hover treatments (mirrors the four visual button roles used across the site) */
+.pdx-btn-primary:hover {
+  background: var(--pdx-blue-hover);
+}
+
+.pdx-btn-outline:hover {
+  background: var(--pdx-sand);
+}
+
+.pdx-btn-light:hover {
+  background: var(--pdx-tan);
+}
+
+.pdx-link:hover {
+  color: var(--pdx-blue);
+}
+
+.pdx-burger:hover {
+  background: var(--pdx-sand);
+}

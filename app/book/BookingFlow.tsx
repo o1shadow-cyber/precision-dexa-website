@@ -204,6 +204,11 @@ export default function BookingFlow() {
     }
 
     const body = await res.json();
+    if (body.url) {
+      window.location.href = body.url;
+      return;
+    }
+    // Fallback path (shouldn't happen once Stripe is wired up, kept for safety)
     setBookingId(body.bookingId);
     setStep("success");
   }

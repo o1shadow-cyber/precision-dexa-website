@@ -44,10 +44,12 @@ export default function AboutPage() {
             </div>
             <figcaption
               style={{
-                marginTop: 18,
+                background: "#0D3B66",
+                padding: "18px clamp(20px,2.4vw,28px)",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "baseline",
+                flexWrap: "wrap",
                 gap: 12,
               }}
             >
@@ -56,50 +58,15 @@ export default function AboutPage() {
                   font: "500 10px/1 var(--font-inter),sans-serif",
                   letterSpacing: ".2em",
                   textTransform: "uppercase",
-                  color: "#5E7F6B",
+                  color: "#C6B18E",
                 }}
               >
                 Amber, RT &nbsp;·&nbsp; Founder
               </span>
-              <span style={{ font: "400 21px/1 Georgia,serif", color: "#0D3B66" }}>
-                18 <em style={{ fontStyle: "italic", color: "#5E7F6B", fontSize: 14 }}>years</em>
+              <span style={{ font: "400 16px/1 Georgia,serif", fontStyle: "italic", color: "#F7F7F5" }}>
+                18 years in diagnostic imaging
               </span>
             </figcaption>
-            <div
-              style={{
-                marginTop: 18,
-                paddingTop: 18,
-                borderTop: "1px solid #E7E1D6",
-                display: "flex",
-                flexDirection: "column",
-                gap: 10,
-              }}
-            >
-              {[
-                "Registered Radiologic Technologist",
-                "Every scan performed personally",
-                "Locally owned in Camas, WA",
-              ].map((item) => (
-                <span key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#5E7F6B"
-                    strokeWidth="2.4"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ flex: "none", marginTop: 4 }}
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span style={{ font: "400 14.5px/1.5 var(--font-inter),sans-serif", color: "#33424C" }}>
-                    {item}
-                  </span>
-                </span>
-              ))}
-            </div>
           </figure>
           <div style={{ flex: "1 1 440px", minWidth: 300 }}>
             <p
@@ -141,19 +108,35 @@ export default function AboutPage() {
             <p style={{ margin: "26px 0 0", font: "400 17px/1 Georgia,serif", fontStyle: "italic", color: "#0D3B66" }}>
               — Amber, RT
             </p>
-            <p
+            <div
               style={{
-                margin: "36px 0 0",
-                paddingTop: 24,
-                borderTop: "1px solid #C6B18E",
-                font: "500 12px/1.7 var(--font-inter),sans-serif",
-                letterSpacing: ".1em",
-                textTransform: "uppercase",
-                color: "#5E7F6B",
+                marginTop: 36,
+                display: "flex",
+                flexWrap: "wrap",
+                columnGap: "clamp(32px,4vw,56px)",
+                rowGap: 20,
               }}
             >
-              RT-certified &nbsp;·&nbsp; Locally owned and operated in Camas, WA
-            </p>
+              {[
+                "Registered Radiologic Technologist",
+                "Every scan performed personally",
+                "Locally owned in Camas, WA",
+              ].map((item) => (
+                <p
+                  key={item}
+                  style={{
+                    flex: "1 1 180px",
+                    margin: 0,
+                    paddingTop: 14,
+                    borderTop: "1px solid #E7E1D6",
+                    font: "400 15px/1.5 var(--font-inter),sans-serif",
+                    color: "#33424C",
+                  }}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -28,7 +28,7 @@ export default function AboutPage() {
               style={{
                 position: "relative",
                 width: "100%",
-                aspectRatio: "942 / 1131",
+                aspectRatio: "886 / 1075",
                 background: "#E7E1D6",
                 overflow: "hidden",
               }}

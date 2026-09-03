@@ -28,13 +28,13 @@ export default function AboutPage() {
               style={{
                 position: "relative",
                 width: "100%",
-                aspectRatio: "466 / 593",
+                aspectRatio: "942 / 1131",
                 background: "#E7E1D6",
                 overflow: "hidden",
               }}
             >
               <Image
-                src="/assets/amber-about.png"
+                src="/assets/amber-about.jpg"
                 alt="Amber, RT, standing beside the DEXA scanner at Precision Dexa"
                 fill
                 style={{ objectFit: "cover" }}

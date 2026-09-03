@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About — Precision Dexa",
@@ -22,71 +23,81 @@ export default function AboutPage() {
             alignItems: "center",
           }}
         >
-          <figure
-            style={{
-              flex: "1 1 380px",
-              minWidth: 280,
-              margin: 0,
-              background: "#0D3B66",
-              padding: "clamp(28px,3vw,44px)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              gap: 32,
-              minHeight: "clamp(360px,40vw,520px)",
-            }}
-          >
-            <p
+          <figure style={{ flex: "1 1 380px", minWidth: 280, margin: 0 }}>
+            <div
               style={{
-                margin: 0,
-                font: "500 10px/1 var(--font-inter),sans-serif",
-                letterSpacing: ".2em",
-                textTransform: "uppercase",
-                color: "#C6B18E",
+                position: "relative",
+                width: "100%",
+                aspectRatio: "466 / 593",
+                background: "#E7E1D6",
+                overflow: "hidden",
               }}
             >
-              Amber, RT &nbsp;·&nbsp; Founder
-            </p>
-            <div>
-              <p
-                style={{
-                  margin: 0,
-                  font: "400 clamp(64px,8vw,104px)/.92 Georgia,serif",
-                  letterSpacing: "-.03em",
-                  color: "#F7F7F5",
-                }}
-              >
-                18
-              </p>
-              <p
-                style={{
-                  margin: "14px 0 0",
-                  font: "400 clamp(17px,1.7vw,21px)/1.45 Georgia,serif",
-                  fontStyle: "italic",
-                  color: "#C6B18E",
-                }}
-              >
-                years in diagnostic imaging
-              </p>
+              <Image
+                src="/assets/amber-about.png"
+                alt="Amber, RT, standing beside the DEXA scanner at Precision Dexa"
+                fill
+                style={{ objectFit: "cover" }}
+                sizes="(max-width: 700px) 100vw, 460px"
+                priority
+              />
             </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+            <figcaption
+              style={{
+                marginTop: 18,
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "baseline",
+                gap: 12,
+              }}
+            >
+              <span
+                style={{
+                  font: "500 10px/1 var(--font-inter),sans-serif",
+                  letterSpacing: ".2em",
+                  textTransform: "uppercase",
+                  color: "#5E7F6B",
+                }}
+              >
+                Amber, RT &nbsp;·&nbsp; Founder
+              </span>
+              <span style={{ font: "400 21px/1 Georgia,serif", color: "#0D3B66" }}>
+                18 <em style={{ fontStyle: "italic", color: "#5E7F6B", fontSize: 14 }}>years</em>
+              </span>
+            </figcaption>
+            <div
+              style={{
+                marginTop: 18,
+                paddingTop: 18,
+                borderTop: "1px solid #E7E1D6",
+                display: "flex",
+                flexDirection: "column",
+                gap: 10,
+              }}
+            >
               {[
                 "Registered Radiologic Technologist",
                 "Every scan performed personally",
                 "Locally owned in Camas, WA",
               ].map((item) => (
-                <p
-                  key={item}
-                  style={{
-                    margin: 0,
-                    paddingTop: 14,
-                    borderTop: "1px solid rgba(198,177,142,.45)",
-                    font: "400 15px/1.5 var(--font-inter),sans-serif",
-                    color: "rgba(247,247,245,.9)",
-                  }}
-                >
-                  {item}
-                </p>
+                <span key={item} style={{ display: "flex", gap: 10, alignItems: "flex-start" }}>
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#5E7F6B"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ flex: "none", marginTop: 4 }}
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span style={{ font: "400 14.5px/1.5 var(--font-inter),sans-serif", color: "#33424C" }}>
+                    {item}
+                  </span>
+                </span>
               ))}
             </div>
           </figure>

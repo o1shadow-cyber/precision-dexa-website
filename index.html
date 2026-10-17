@@ -62,6 +62,9 @@ sc-if { display: contents; }
 .pdx-h17:hover{color:#0D3B66}
 .pdx-h18:hover{color:#0D3B66}
 .pdx-h19:hover{color:#0D3B66}
+.pdx-h20:hover{background:#12507F}
+.pdx-h20:disabled{opacity:.6;cursor:default}
+.pdx-input:focus{outline:none;border-color:#5E7F6B;background:#fff}
 </style>
 </head>
 <body>
@@ -378,6 +381,33 @@ sc-if { display: contents; }
         </div>
       </div>
     </section>
+
+<section id="waitlist" style="padding:clamp(72px,9vw,128px) clamp(20px,5vw,56px)">
+  <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px);align-items:flex-start">
+    <div style="flex:1 1 380px;min-width:280px">
+      <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">Join the waitlist</p>
+      <h2 style="margin:22px 0 0;font:400 clamp(27px,3.5vw,42px)/1.18 Georgia,serif;letter-spacing:-.015em;color:#0D3B66">Be first on <em style="font-style:italic;color:#5E7F6B">the schedule.</em></h2>
+      <p style="margin:24px 0 0;max-width:46ch;font:400 clamp(16px,1.15vw,17.5px)/1.72 Inter,sans-serif;color:#4A555C;text-wrap:pretty">We're opening soon in Camas. Join the waitlist and we'll let you know as soon as booking opens, along with first access to our founding-member pricing.</p>
+    </div>
+
+    <form id="pdx-waitlist" action="https://precisiondexa.us1.list-manage.com/subscribe/post?u=fce3c44d19c96d5c9faafb774&amp;id=eeb6715336" method="post" target="_blank" novalidate style="flex:1 1 420px;min-width:280px;background:#fff;border-top:2px solid #5E7F6B;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column;gap:20px">
+      <label style="display:flex;flex-direction:column;gap:8px;font:500 11px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0D3B66">First name
+        <input type="text" name="FNAME" autocomplete="given-name" required class="pdx-input" style="border:1px solid #D9D1C1;background:#F7F7F5;padding:15px 16px;font:400 16px/1.3 Inter,sans-serif;color:#33424C;letter-spacing:normal;text-transform:none">
+      </label>
+      <label style="display:flex;flex-direction:column;gap:8px;font:500 11px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#0D3B66">Email
+        <input type="email" name="EMAIL" autocomplete="email" required class="pdx-input" style="border:1px solid #D9D1C1;background:#F7F7F5;padding:15px 16px;font:400 16px/1.3 Inter,sans-serif;color:#33424C;letter-spacing:normal;text-transform:none">
+      </label>
+      <input type="hidden" name="tags" value="225061134">
+      <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="b_fce3c44d19c96d5c9faafb774_eeb6715336" tabindex="-1" value=""></div>
+      <label style="display:flex;gap:12px;align-items:flex-start;font:400 14px/1.6 Inter,sans-serif;color:#4A555C">
+        <input type="checkbox" name="consent" required style="flex:none;margin:4px 0 0;width:16px;height:16px;accent-color:#0D3B66">
+        <span>Yes, I'd like to receive emails from Precision Dexa about our opening, availability and offers. I can unsubscribe at any time.</span>
+      </label>
+      <button type="submit" style="align-self:flex-start;background:#0D3B66;color:#F7F7F5;border:0;padding:17px 32px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-h20">Join the Waitlist</button>
+      <p data-waitlist-status role="status" aria-live="polite" style="margin:0;font:400 14px/1.6 Inter,sans-serif;color:#4A555C">We'll send a quick email to confirm your address.</p>
+    </form>
+  </div>
+</section>
 
     <section style="background:#0D3B66;padding:clamp(72px,9vw,124px) clamp(20px,5vw,56px)">
       <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:36px;align-items:center;justify-content:space-between">
@@ -813,6 +843,52 @@ sc-if { display: contents; }
     else if (action === 'toggleMenu') { state.menuOpen = !state.menuOpen; render(); }
     else if (action === 'pickFact') pickFact(parseInt(el.getAttribute('data-fact'), 10));
   });
+
+  // Waitlist signup: posts to Mailchimp via JSONP so visitors stay on the page.
+  var waitlist = document.getElementById('pdx-waitlist');
+  if (waitlist) {
+    waitlist.addEventListener('submit', function(e){
+      e.preventDefault();
+      var status = waitlist.querySelector('[data-waitlist-status]');
+      var button = waitlist.querySelector('button[type="submit"]');
+      var fname = waitlist.FNAME.value.trim();
+      var email = waitlist.EMAIL.value.trim();
+      if (!fname || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        status.textContent = 'Please enter your first name and a valid email address.';
+        return;
+      }
+      if (!waitlist.consent.checked) {
+        status.textContent = 'Please check the box so we can email you.';
+        return;
+      }
+      var cb = 'pdxWaitlist' + Date.now();
+      var params = new URLSearchParams(new FormData(waitlist));
+      params.delete('consent');
+      params.set('c', cb);
+      var script = document.createElement('script');
+      button.disabled = true;
+      status.textContent = 'Sending…';
+      window[cb] = function(res){
+        delete window[cb];
+        script.remove();
+        button.disabled = false;
+        if (res && res.result === 'success') {
+          waitlist.reset();
+          status.textContent = "Almost done — check your inbox and confirm your email to join the waitlist.";
+        } else {
+          var msg = (res && res.msg ? String(res.msg) : '').replace(/<[^>]*>/g, '').replace(/^\d+\s*-\s*/, '');
+          status.textContent = /already subscribed/i.test(msg) ? "You're already on the list — thank you!" : (msg || 'Something went wrong. Please try again.');
+        }
+      };
+      script.onerror = function(){
+        delete window[cb];
+        button.disabled = false;
+        status.textContent = 'Something went wrong. Please try again.';
+      };
+      script.src = waitlist.action.replace('/post?', '/post-json?') + '&' + params.toString();
+      document.body.appendChild(script);
+    });
+  }
 
   window.addEventListener('hashchange', fromHash);
   fromHash();

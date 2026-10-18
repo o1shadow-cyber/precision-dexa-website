@@ -844,13 +844,12 @@ sc-if { display: contents; }
     else if (action === 'pickFact') pickFact(parseInt(el.getAttribute('data-fact'), 10));
   });
 
-  // Waitlist signup: posts to Mailchimp via JSONP so visitors stay on the page.
+  // Waitlist signup: validates on the page, then submits to Mailchimp in a new tab.
   var waitlist = document.getElementById('pdx-waitlist');
   if (waitlist) {
     waitlist.addEventListener('submit', function(e){
       e.preventDefault();
       var status = waitlist.querySelector('[data-waitlist-status]');
-      var button = waitlist.querySelector('button[type="submit"]');
       var fname = waitlist.FNAME.value.trim();
       var email = waitlist.EMAIL.value.trim();
       if (!fname || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -861,32 +860,13 @@ sc-if { display: contents; }
         status.textContent = 'Please check the box so we can email you.';
         return;
       }
-      var cb = 'pdxWaitlist' + Date.now();
-      var params = new URLSearchParams(new FormData(waitlist));
-      params.delete('consent');
-      params.set('c', cb);
-      var script = document.createElement('script');
-      button.disabled = true;
-      status.textContent = 'Sending…';
-      window[cb] = function(res){
-        delete window[cb];
-        script.remove();
-        button.disabled = false;
-        if (res && res.result === 'success') {
-          waitlist.reset();
-          status.textContent = "Almost done — check your inbox and confirm your email to join the waitlist.";
-        } else {
-          var msg = (res && res.msg ? String(res.msg) : '').replace(/<[^>]*>/g, '').replace(/^\d+\s*-\s*/, '');
-          status.textContent = /already subscribed/i.test(msg) ? "You're already on the list — thank you!" : (msg || 'Something went wrong. Please try again.');
-        }
-      };
-      script.onerror = function(){
-        delete window[cb];
-        button.disabled = false;
-        status.textContent = 'Something went wrong. Please try again.';
-      };
-      script.src = waitlist.action.replace('/post?', '/post-json?') + '&' + params.toString();
-      document.body.appendChild(script);
+      // Hand off to Mailchimp's standard signup handler in a new tab (the form's
+      // action/target). The background JSONP request failed in every browser.
+      waitlist.consent.disabled = true; // keep the site-only checkbox out of the Mailchimp request
+      waitlist.submit();
+      waitlist.consent.disabled = false;
+      waitlist.reset();
+      status.textContent = "Almost done — finish in the Mailchimp tab, then check your inbox and confirm your email to join the waitlist.";
     });
   }
 

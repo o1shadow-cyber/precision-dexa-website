@@ -82,11 +82,12 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
 @media (max-width:700px){.pdx-cmp-head{display:none}.pdx-cmp-row{grid-template-columns:1fr;border-top:1px solid #D9D1C1}.pdx-cmp-row:nth-child(2){border-top:0}.pdx-cmp-k{padding-bottom:4px}.pdx-cmp-v{padding-top:6px;padding-bottom:6px}.pdx-cmp-v:last-child{padding-bottom:16px}.pdx-cmp-v::before{content:attr(data-col);display:block;font:500 10.5px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#5E7F6B}}
 .pdx-welcome{display:flex;flex-direction:column;align-items:center;text-align:center;max-width:760px;margin:clamp(22px,3vw,36px) auto 0}
 .pdx-ctas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,22px);margin-top:clamp(40px,5vw,64px);align-items:stretch}
-.pdx-cta{display:flex;flex-direction:column;min-width:0;background:#fff;border:1px solid #E7E1D6;border-top:3px solid #C6B18E;padding:clamp(22px,2.2vw,28px)}
+.pdx-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);clip-path:inset(50%);white-space:nowrap;border:0}
+.pdx-cta{display:flex;flex-direction:column;min-width:0;background:#0D3B66;border:0;padding:clamp(26px,2.6vw,34px)}
 .pdx-cta-action{margin-top:auto;padding-top:22px}
-.pdx-cta-btn{display:block;width:100%;box-sizing:border-box;text-align:center;background:#0D3B66;color:#F7F7F5;border:0;padding:14px 16px;font:500 12px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
-a.pdx-cta-btn,a.pdx-cta-btn:hover,button.pdx-cta-btn,button.pdx-cta-btn:hover{color:#F7F7F5 !important;text-decoration:none}
-.pdx-cta-btn:hover{background:#12507F !important}
+.pdx-cta-btn{display:block;width:100%;box-sizing:border-box;text-align:center;background:#F7F7F5;color:#0D3B66;border:0;padding:15px 16px;font:500 12px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+a.pdx-cta-btn,a.pdx-cta-btn:hover,button.pdx-cta-btn,button.pdx-cta-btn:hover{color:#0D3B66 !important;text-decoration:none}
+.pdx-cta-btn:hover{background:#C6B18E !important}
 @media (max-width:860px){.pdx-ctas{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
@@ -340,7 +341,7 @@ a.pdx-cta-btn,a.pdx-cta-btn:hover,button.pdx-cta-btn,button.pdx-cta-btn:hover{co
 
     <section style="padding:clamp(44px,5.5vw,76px) clamp(20px,5vw,56px) clamp(56px,7vw,88px)">
       <div style="max-width:1180px;margin:0 auto">
-        <h1 style="margin:0 auto;max-width:36em;text-align:center;font:500 13px/1.5 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#5E7F6B;text-wrap:balance">DEXA Body Composition &amp; Bone Density Scans in Camas, WA</h1>
+        <h1 class="pdx-sr">DEXA Body Composition &amp; Bone Density Scans in Camas, WA</h1>
         <div class="pdx-welcome">
           <img src="assets/amber-headshot.png" alt="Amber, RT, co-owner of Precision Dexa" width="240" height="240" style="width:120px;height:120px;display:block">
           <h2 style="margin:18px 0 0;font:400 clamp(32px,4vw,48px)/1.15 Georgia,serif;letter-spacing:-.02em;color:#0D3B66;text-wrap:balance">I'd love to see you there.</h2>
@@ -350,44 +351,44 @@ a.pdx-cta-btn,a.pdx-cta-btn:hover,button.pdx-cta-btn,button.pdx-cta-btn:hover{co
         <p style="margin:22px auto 0;max-width:46em;text-align:center;font:400 13.5px/1.6 Inter,sans-serif;color:#5A6068;text-wrap:balance">Suite 14 inside CLASH Beauty Collective · Camas, WA · Opening Dec 1, 2026 · Cash-pay</p>
         <div class="pdx-ctas">
           <article class="pdx-cta">
-            <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#5E7F6B">Book online</p>
-            <h3 style="margin:12px 0 0;font:400 28px/1.2 Georgia,serif;color:#0D3B66">Book a Scan</h3>
-            <div style="margin-top:18px;border-top:1px solid #E7E1D6">
-              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid #E7E1D6;font:400 15px/1.35 Inter,sans-serif;color:#33424C"><span>Body Composition</span><span style="color:#0D3B66;font-variant-numeric:tabular-nums">$149</span></div>
-              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid #E7E1D6;font:400 15px/1.35 Inter,sans-serif;color:#33424C"><span>Bone Density</span><span style="color:#0D3B66;font-variant-numeric:tabular-nums">$199</span></div>
-              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid #E7E1D6;font:400 15px/1.35 Inter,sans-serif;color:#33424C"><span>Complete Health Assessment</span><span style="color:#0D3B66;font-variant-numeric:tabular-nums">$249</span></div>
+            <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C6B18E">Book online</p>
+            <h3 style="margin:12px 0 0;font:400 28px/1.2 Georgia,serif;color:#F7F7F5">Book a Scan</h3>
+            <div style="margin-top:18px;border-top:1px solid rgba(247,247,245,.28)">
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(247,247,245,.28);font:400 15px/1.35 Inter,sans-serif;color:#F7F7F5"><span>Body Composition</span><span style="font-variant-numeric:tabular-nums">$149</span></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(247,247,245,.28);font:400 15px/1.35 Inter,sans-serif;color:#F7F7F5"><span>Bone Density</span><span style="font-variant-numeric:tabular-nums">$199</span></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(247,247,245,.28);font:400 15px/1.35 Inter,sans-serif;color:#F7F7F5"><span>Complete Health Assessment</span><span style="font-variant-numeric:tabular-nums">$249</span></div>
             </div>
             <div class="pdx-cta-action">
               <a href="https://precisiondexa.janeapp.com" class="pdx-cta-btn">Book a Scan</a>
             </div>
           </article>
           <article id="founding" class="pdx-cta" style="scroll-margin-top:110px">
-            <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#5E7F6B">Through Dec 31, 2026</p>
-            <h3 style="margin:12px 0 0;font:400 28px/1.2 Georgia,serif;color:#0D3B66">Founding-Member Packs</h3>
-            <div style="margin-top:18px;border-top:1px solid #E7E1D6">
-              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid #E7E1D6;font:400 15px/1.35 Inter,sans-serif;color:#33424C"><span>2-Pack</span><span style="color:#0D3B66;font-variant-numeric:tabular-nums">$249</span></div>
-              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid #E7E1D6;font:400 15px/1.35 Inter,sans-serif;color:#33424C"><span>3-Pack</span><span style="color:#0D3B66;font-variant-numeric:tabular-nums">$349</span></div>
+            <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C6B18E">Through Dec 31, 2026</p>
+            <h3 style="margin:12px 0 0;font:400 28px/1.2 Georgia,serif;color:#F7F7F5">Founding-Member Packs</h3>
+            <div style="margin-top:18px;border-top:1px solid rgba(247,247,245,.28)">
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(247,247,245,.28);font:400 15px/1.35 Inter,sans-serif;color:#F7F7F5"><span>2-Pack</span><span style="font-variant-numeric:tabular-nums">$249</span></div>
+              <div style="display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:11px 0;border-bottom:1px solid rgba(247,247,245,.28);font:400 15px/1.35 Inter,sans-serif;color:#F7F7F5"><span>3-Pack</span><span style="font-variant-numeric:tabular-nums">$349</span></div>
             </div>
-            <p style="margin:14px 0 0;font:400 14.5px/1.55 Inter,sans-serif;color:#4A555C">Each expires 52 weeks after purchase.</p>
+            <p style="margin:14px 0 0;font:400 14.5px/1.55 Inter,sans-serif;color:#F7F7F5">Each expires 52 weeks after purchase.</p>
             <div class="pdx-cta-action">
               <a href="https://precisiondexa.janeapp.com/#packages" class="pdx-cta-btn">Buy a Pack</a>
             </div>
           </article>
           <article id="waitlist" class="pdx-cta" style="scroll-margin-top:110px">
-            <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#5E7F6B">Closes Dec 31, 2026</p>
-            <h3 style="margin:12px 0 0;font:400 28px/1.2 Georgia,serif;color:#0D3B66">Join the Waitlist</h3>
-            <p style="margin:14px 0 0;font:400 15.5px/1.55 Inter,sans-serif;color:#33424C">Early booking access and opening news.</p>
+            <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#C6B18E">Closes Dec 31, 2026</p>
+            <h3 style="margin:12px 0 0;font:400 28px/1.2 Georgia,serif;color:#F7F7F5">Join the Waitlist</h3>
+            <p style="margin:14px 0 0;font:400 15.5px/1.55 Inter,sans-serif;color:#F7F7F5">Early booking access and opening news.</p>
             <form id="pdx-waitlist" action="https://precisiondexa.us1.list-manage.com/subscribe/post?u=fce3c44d19c96d5c9faafb774&amp;id=eeb6715336" method="post" target="_blank" novalidate class="pdx-cta-action">
-              <label for="pdx-email" style="display:block;margin:0 0 8px;font:500 11px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#5E7F6B">Email</label>
-              <input id="pdx-email" type="email" name="EMAIL" autocomplete="email" required style="width:100%;border:1px solid #E7E1D6;background:#F7F7F5;color:#0D3B66;padding:12px 12px;font:400 16px/1.3 Inter,sans-serif">
-              <label style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font:400 13px/1.45 Inter,sans-serif;color:#33424C">
-                <input type="checkbox" name="consent" required style="flex:none;margin:2px 0 0;width:16px;height:16px;accent-color:#5E7F6B">
+              <label for="pdx-email" style="display:block;margin:0 0 8px;font:500 11px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#C6B18E">Email</label>
+              <input id="pdx-email" type="email" name="EMAIL" autocomplete="email" required class="pdx-input-dark" style="width:100%;border:1px solid rgba(247,247,245,.35);background:rgba(247,247,245,.08);color:#F7F7F5;padding:12px 12px;font:400 16px/1.3 Inter,sans-serif">
+              <label style="display:flex;gap:10px;align-items:flex-start;margin:14px 0 0;font:400 13px/1.45 Inter,sans-serif;color:#F7F7F5">
+                <input type="checkbox" name="consent" required style="flex:none;margin:2px 0 0;width:16px;height:16px;accent-color:#C6B18E">
                 <span>Yes, I'd like to receive emails from Precision Dexa about our opening, availability and offers. I can unsubscribe at any time.</span>
               </label>
               <button type="submit" class="pdx-cta-btn" style="margin-top:16px">Join</button>
               <input type="hidden" name="tags" value="5061134">
               <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="b_fce3c44d19c96d5c9faafb774_eeb6715336" tabindex="-1" value=""></div>
-              <p data-waitlist-status role="status" aria-live="polite" style="margin:12px 0 0;min-height:2.6em;font:400 13px/1.45 Inter,sans-serif;color:#4A555C">We'll send a quick email to confirm your address.</p>
+              <p data-waitlist-status role="status" aria-live="polite" style="margin:12px 0 0;min-height:2.6em;font:400 13px/1.45 Inter,sans-serif;color:#F7F7F5">We'll send a quick email to confirm your address.</p>
             </form>
           </article>
         </div>

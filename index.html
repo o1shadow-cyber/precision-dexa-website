@@ -80,6 +80,10 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
 .pdx-cmp-head .pdx-cmp-v{font:400 19px/1.3 Georgia,serif;color:#0D3B66}
 .pdx-cmp-row:last-child .pdx-cmp-v{font:400 20px/1.3 Georgia,serif;color:#0D3B66}
 @media (max-width:700px){.pdx-cmp-head{display:none}.pdx-cmp-row{grid-template-columns:1fr;border-top:1px solid #D9D1C1}.pdx-cmp-row:nth-child(2){border-top:0}.pdx-cmp-k{padding-bottom:4px}.pdx-cmp-v{padding-top:6px;padding-bottom:6px}.pdx-cmp-v:last-child{padding-bottom:16px}.pdx-cmp-v::before{content:attr(data-col);display:block;font:500 10.5px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#5E7F6B}}
+.pdx-welcome{display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,52px);align-items:center;justify-content:center;margin-top:clamp(28px,3.6vw,44px)}
+.pdx-welcome-copy{flex:1 1 480px;min-width:min(100%,260px);max-width:620px}
+.pdx-welcome-actions{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center}
+@media (max-width:760px){.pdx-welcome{flex-direction:column;text-align:center}.pdx-welcome-actions{justify-content:center}}
 </style>
 <script type="application/ld+json">
 {
@@ -116,13 +120,24 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
         "longitude": -122.474674
       },
       "hasMap": "https://maps.google.com/?cid=6730224606262366289",
+      "containedInPlace": {
+        "@type": "Place",
+        "name": "CLASH Beauty Collective",
+        "image": "https://www.precisiondexa.com/assets/building-exterior.webp",
+        "description": "Enter through the CLASH Beauty Collective entrance, then find Suite 14 inside.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "19550 SE Brady Road",
+          "addressLocality": "Camas",
+          "addressRegion": "WA",
+          "postalCode": "98607",
+          "addressCountry": "US"
+        }
+      },
       "openingHoursSpecification": [
         {
           "@type": "OpeningHoursSpecification",
           "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
             "Thursday",
             "Friday"
           ],
@@ -265,7 +280,7 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
           "name": "What are your hours?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Monday through Friday 8am–8pm, Saturday 8am–5pm, and Sunday closed."
+            "text": "Thursday and Friday 8am–8pm, Saturday 8am–5pm, and closed Sunday through Wednesday."
           }
         }
       ]
@@ -319,62 +334,32 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
   <sc-if data-if="isHome">
   <main style="animation:pdxIn .5s ease both">
 
-    <section style="padding:clamp(48px,6vw,88px) clamp(20px,5vw,56px) clamp(64px,8vw,112px)">
-      <div style="max-width:880px;margin:0 auto;text-align:center">
-        <p style="margin:0;font:500 11px/1.4 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">Camas, Washington · Cash-pay DEXA</p>
-        <h1 style="margin:20px 0 0;font:400 clamp(34px,4.8vw,60px)/1.12 Georgia,serif;letter-spacing:-.02em;color:#0D3B66;text-wrap:balance">DEXA Body Composition &amp; Bone Density Scans in Camas, WA</h1>
-        <p style="margin:26px auto 0;max-width:62ch;font:400 clamp(16px,1.2vw,18px)/1.75 Inter,sans-serif;color:#4A555C;text-wrap:pretty">Precision Dexa is a cash-pay studio at 19550 SE Brady Road, Suite 14. Amber, a Registered Radiologic Technologist with 18 years in imaging, performs every scan. Clients visit from Camas, Washougal, East Vancouver, and Cascade Park. Online booking is open now, with a soft opening on December 1, 2026.</p>
-        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:16px 22px;justify-content:center;align-items:center">
-          <a href="https://precisiondexa.janeapp.com" style="display:inline-block;background:#0D3B66;color:#F7F7F5;padding:17px 32px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-book-dark">Book a Scan</a>
-          <a href="#waitlist" style="font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0D3B66;border-bottom:1px solid #C6B18E;padding-bottom:5px">Founding-member pricing</a>
+    <section style="padding:clamp(40px,5.2vw,72px) clamp(20px,5vw,56px) clamp(56px,7vw,96px)">
+      <div style="max-width:1040px;margin:0 auto">
+        <h1 style="margin:0 auto;max-width:36em;text-align:center;font:500 13px/1.5 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#5E7F6B;text-wrap:balance">DEXA Body Composition &amp; Bone Density Scans in Camas, WA</h1>
+        <div class="pdx-welcome">
+          <img src="assets/amber-headshot.png" alt="Amber, RT, co-owner of Precision Dexa" width="240" height="240" style="flex:none;width:156px;height:156px;display:block">
+          <div class="pdx-welcome-copy">
+            <h2 style="margin:0;font:400 clamp(28px,3.4vw,42px)/1.18 Georgia,serif;letter-spacing:-.02em;color:#0D3B66;text-wrap:balance">I'm opening Precision Dexa this winter — <em style="font-style:italic;color:#5E7F6B">and I'd love to see you there.</em></h2>
+            <p style="margin:18px 0 0;font:400 clamp(16px,1.15vw,18px)/1.7 Inter,sans-serif;color:#4A555C;text-wrap:pretty">After 18 years in diagnostic imaging, I wanted a place where people could see exactly what's going on inside — fat, muscle, and bone — and have it explained in plain language. That place is opening in Camas, and every scan will be done by me. Precision Dexa is co-owned by Amber and David.</p>
+            <p style="margin:14px 0 0;font:400 16px/1.65 Inter,sans-serif;color:#33424C;text-wrap:pretty">We're cash-pay, at 19550 SE Brady Road, Suite 14, inside the CLASH Beauty Collective building. Soft opening December 1, 2026.</p>
+            <p style="margin:16px 0 0;font:400 20px/1.3 Georgia,serif;font-style:italic;color:#0D3B66">— Amber, RT</p>
+            <div class="pdx-welcome-actions" style="margin-top:26px">
+              <a href="https://precisiondexa.janeapp.com" style="display:inline-block;background:#0D3B66;color:#F7F7F5;padding:17px 32px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-book-dark">Book a Scan</a>
+              <a href="#founding" style="font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0D3B66;border-bottom:1px solid #C6B18E;padding-bottom:5px">Founding-member pricing</a>
+            </div>
+          </div>
         </div>
-        <div style="margin-top:36px;display:flex;flex-wrap:wrap;gap:14px;text-align:left">
+        <div style="margin-top:clamp(32px,4vw,44px);display:flex;flex-wrap:wrap;gap:14px;text-align:left">
           <a href="/body-composition/" style="flex:1 1 220px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px;background:#fff;border:1px solid #E7E1D6;border-left:3px solid #5E7F6B;color:#0D3B66"><span style="font:400 18px/1.3 Georgia,serif">Body Composition</span><span style="font:400 22px/1 Georgia,serif;color:#5E7F6B">$149</span></a>
           <a href="/bone-density/" style="flex:1 1 220px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px;background:#fff;border:1px solid #E7E1D6;border-left:3px solid #0D3B66;color:#0D3B66"><span style="font:400 18px/1.3 Georgia,serif">Bone Density</span><span style="font:400 22px/1 Georgia,serif;color:#0D3B66">$199</span></a>
           <a href="/complete-health-assessment/" style="flex:1 1 240px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px;background:#fff;border:1px solid #E7E1D6;border-left:3px solid #C6B18E;color:#0D3B66"><span style="font:400 18px/1.3 Georgia,serif">Complete Assessment</span><span style="font:400 22px/1 Georgia,serif;color:#0D3B66">$249</span></a>
         </div>
-        <p style="margin:18px 0 0;font:400 14.5px/1.6 Inter,sans-serif;color:#5A6068">Founding-member packages on Jane: 2-Pack $249 and 3-Pack $349, each expiring 52 weeks after purchase. <a href="/corporate-wellness/" style="border-bottom:1px solid #C6B18E">Corporate wellness scan days</a> for Camas and Vancouver groups.</p>
-      </div>
-
-      <div style="max-width:780px;margin:clamp(56px,7vw,88px) auto 0;text-align:center">
-        <img src="assets/amber-headshot.png" alt="Amber, RT, co-owner of Precision Dexa" width="112" height="112" loading="lazy" style="display:block;margin:0 auto;width:112px;height:112px">
-        <p style="margin:22px 0 0;font:500 11px/1.4 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">A note from Amber · Co-owner</p>
-        <h2 style="margin:20px 0 0;font:400 clamp(28px,3.6vw,42px)/1.18 Georgia,serif;letter-spacing:-.02em;color:#0D3B66;text-wrap:balance">I'm opening Precision Dexa this winter — <em style="font-style:italic;color:#5E7F6B">and I'd love to see you there.</em></h2>
-        <p style="margin:26px auto 0;max-width:56ch;font:400 clamp(16px,1.2vw,18px)/1.75 Inter,sans-serif;color:#4A555C;text-wrap:pretty">After 18 years in diagnostic imaging, I wanted a place where people could see exactly what's going on inside — fat, muscle, and bone — and have it explained in plain language. That place is opening in Camas, and every scan will be done by me. Precision Dexa is co-owned by Amber and David.</p>
-        <p style="margin:18px 0 0;font:400 20px/1.3 Georgia,serif;font-style:italic;color:#0D3B66">— Amber, RT</p>
-      </div>
-
-      <div id="waitlist" style="scroll-margin-top:100px;max-width:680px;margin:clamp(36px,4vw,52px) auto 0;background:#0D3B66;padding:clamp(26px,3.4vw,44px)">
-        <p style="margin:0;text-align:center;font:500 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#C6B18E">Founding-member pricing</p>
-        <h2 style="margin:14px 0 0;text-align:center;font:400 clamp(22px,2.4vw,28px)/1.3 Georgia,serif;color:#F7F7F5;text-wrap:balance">Early booking access, through December 31, 2026.</h2>
-        <p style="margin:14px 0 0;text-align:center;font:400 15px/1.65 Inter,sans-serif;color:rgba(247,247,245,.82)">The waitlist is a secondary option for founding-member pricing and early booking. It closes December 31, 2026. On Jane, a 2-Pack is $249 and a 3-Pack is $349. Each package expires 52 weeks after purchase.</p>
-        <form id="pdx-waitlist" action="https://precisiondexa.us1.list-manage.com/subscribe/post?u=fce3c44d19c96d5c9faafb774&amp;id=eeb6715336" method="post" target="_blank" novalidate style="margin-top:24px">
-          <div style="display:flex;flex-wrap:wrap;gap:16px">
-            <label style="flex:1 1 200px;display:flex;flex-direction:column;gap:8px;font:500 11px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#C6B18E">First name
-              <input type="text" name="FNAME" autocomplete="given-name" required class="pdx-input-dark" style="width:100%;border:1px solid rgba(247,247,245,.28);background:rgba(247,247,245,.06);padding:15px 16px;font:400 16px/1.3 Inter,sans-serif;color:#F7F7F5;letter-spacing:normal;text-transform:none">
-            </label>
-            <label style="flex:1 1 200px;display:flex;flex-direction:column;gap:8px;font:500 11px/1 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#C6B18E">Email
-              <input type="email" name="EMAIL" autocomplete="email" required class="pdx-input-dark" style="width:100%;border:1px solid rgba(247,247,245,.28);background:rgba(247,247,245,.06);padding:15px 16px;font:400 16px/1.3 Inter,sans-serif;color:#F7F7F5;letter-spacing:normal;text-transform:none">
-            </label>
-          </div>
-          <input type="hidden" name="tags" value="5061134">
-          <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="b_fce3c44d19c96d5c9faafb774_eeb6715336" tabindex="-1" value=""></div>
-          <div style="margin-top:18px;display:flex;flex-wrap:wrap;gap:18px 24px;align-items:center;justify-content:space-between">
-            <label style="flex:1 1 260px;display:flex;gap:12px;align-items:flex-start;font:400 13.5px/1.55 Inter,sans-serif;color:rgba(247,247,245,.8)">
-              <input type="checkbox" name="consent" required style="flex:none;margin:3px 0 0;width:16px;height:16px;accent-color:#C6B18E">
-              <span>Yes, I'd like to receive emails from Precision Dexa about our opening, availability and offers. I can unsubscribe at any time.</span>
-            </label>
-            <button type="submit" style="flex:none;background:#F7F7F5;color:#0D3B66;border:0;padding:19px 34px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-book-light">Join the Waitlist</button>
-          </div>
-          <p data-waitlist-status role="status" aria-live="polite" style="margin:16px 0 0;font:400 14px/1.6 Inter,sans-serif;color:rgba(247,247,245,.8)">We'll send a quick email to confirm your address.</p>
-        </form>
-        <div style="margin-top:22px;padding-top:18px;border-top:1px solid rgba(247,247,245,.18);display:flex;text-align:center">
-          <div style="flex:1"><p style="margin:0;font:500 10.5px/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#C6B18E">Soft opening</p><p style="margin:9px 0 0;font:400 20px/1.25 Georgia,serif;color:#F7F7F5">December 1, 2026</p></div>
-          <div style="flex:1;border-left:1px solid rgba(247,247,245,.18)"><p style="margin:0;font:500 10.5px/1 Inter,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#C6B18E">Waitlist closes</p><p style="margin:9px 0 0;font:400 20px/1.25 Georgia,serif;color:#F7F7F5">December 31, 2026</p></div>
+        <div id="founding" style="scroll-margin-top:100px;margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;padding:10px 14px;background:#fff;border:1px solid #E7E1D6;border-left:3px solid #C6B18E">
+          <p style="margin:0;flex:1 1 280px;font:400 14.5px/1.45 Inter,sans-serif;color:#33424C">Founding-member packs: 2-Pack $249 · 3-Pack $349, available through Dec 31, 2026 · each expires 52 weeks after purchase. <a href="/corporate-wellness/" style="white-space:nowrap;border-bottom:1px solid #C6B18E">Corporate wellness</a></p>
+          <a href="https://precisiondexa.janeapp.com" style="flex:none;display:inline-block;background:#0D3B66;color:#F7F7F5;padding:9px 14px;font:500 11.5px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase" class="pdx-book-dark">Book</a>
         </div>
       </div>
-
-      <p style="margin:24px 0 0;text-align:center"><a href="https://precisiondexa.janeapp.com" style="font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0D3B66;border-bottom:1px solid #C6B18E;padding-bottom:5px">Book a Scan</a></p>
     </section>
 
     <section style="border-top:1px solid #E7E1D6;padding:clamp(72px,9vw,128px) clamp(20px,5vw,56px)">
@@ -613,7 +598,7 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
           </div>
           <div style="border-top:1px solid #E7E1D6;padding:22px 0">
             <h3 style="margin:0;font:400 22px/1.35 Georgia,serif;color:#0D3B66">What are your hours?</h3>
-            <p style="margin:12px 0 0;max-width:68ch;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">Monday through Friday 8am–8pm, Saturday 8am–5pm, and Sunday closed.</p>
+            <p style="margin:12px 0 0;max-width:68ch;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">Thursday and Friday 8am–8pm, Saturday 8am–5pm, and closed Sunday through Wednesday.</p>
           </div>
         </div>
       </div>
@@ -753,7 +738,7 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
         <h2 style="margin:0;flex:1 1 420px;font:400 clamp(28px,3.6vw,44px)/1.16 Georgia,serif;letter-spacing:-.015em;color:#F7F7F5">See what your weight <em style="font-style:italic;color:#C6B18E">is made of.</em></h2>
         <div style="display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center">
           <a href="https://precisiondexa.janeapp.com" style="display:inline-block;background:#F7F7F5;color:#0D3B66;padding:19px 34px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-book-light">Book a Scan</a>
-          <a href="#waitlist" style="color:#F7F7F5;border-bottom:1px solid #C6B18E;padding-bottom:5px;font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase">Founding-member pricing</a>
+          <a href="#founding" style="color:#F7F7F5;border-bottom:1px solid #C6B18E;padding-bottom:5px;font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase">Founding-member pricing</a>
         </div>
       </div>
     </section>
@@ -1138,9 +1123,9 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
             <div style="border-top:1px solid #E7E1D6;padding-top:16px">
               <p style="margin:0;font:500 10.5px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#5E7F6B">Hours</p>
               <div style="margin:12px 0 0;display:flex;flex-direction:column;gap:7px;font:400 16px/1.5 Inter,sans-serif;color:#33424C">
-                <div style="display:flex;justify-content:space-between;max-width:300px"><span>Monday – Friday</span><span>8am – 8pm</span></div>
-                <div style="display:flex;justify-content:space-between;max-width:300px"><span>Saturday</span><span>8am – 5pm</span></div>
-                <div style="display:flex;justify-content:space-between;max-width:300px;color:#8A8378"><span>Sunday</span><span>Closed</span></div>
+                <div style="display:flex;justify-content:space-between;max-width:340px"><span>Thursday – Friday</span><span>8am – 8pm</span></div>
+                <div style="display:flex;justify-content:space-between;max-width:340px"><span>Saturday</span><span>8am – 5pm</span></div>
+                <div style="display:flex;justify-content:space-between;max-width:340px;color:#8A8378"><span>Sunday – Wednesday</span><span>Closed</span></div>
               </div>
             </div>
           </div>
@@ -1153,10 +1138,32 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
           </div>
           <a href="https://maps.google.com/?cid=6730224606262366289" target="_blank" rel="noopener" style="display:inline-block;margin-top:16px;font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0D3B66;border-bottom:1px solid #C6B18E;padding-bottom:5px">Get directions on Google Maps &rarr;</a>
         </div>
+        <div style="flex:1 1 100%;display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,40px);align-items:center">
+          <img src="assets/building-exterior.webp" alt="Exterior of the CLASH Beauty Collective building at 19550 SE Brady Road in Camas, where Precision Dexa is Suite 14 inside" width="1400" height="775" loading="lazy" style="flex:1.2 1 300px;max-width:640px;width:100%;height:auto;display:block">
+          <div style="flex:1 1 260px;min-width:240px">
+            <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">Finding us</p>
+            <p style="margin:14px 0 0;max-width:18em;font:400 clamp(22px,2.6vw,32px)/1.35 Georgia,serif;color:#0D3B66">Enter through the CLASH Beauty Collective entrance, then find Suite 14 inside.</p>
+          </div>
+        </div>
       </div>
     </section>
   </main>
   </sc-if>
+
+  <div id="waitlist" style="scroll-margin-top:96px;background:#0D3B66;padding:12px clamp(20px,5vw,56px) 14px">
+    <form id="pdx-waitlist" action="https://precisiondexa.us1.list-manage.com/subscribe/post?u=fce3c44d19c96d5c9faafb774&amp;id=eeb6715336" method="post" target="_blank" novalidate style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center">
+      <p style="margin:0;flex:1 1 200px;font:500 14px/1.35 Inter,sans-serif;color:#F7F7F5">Get opening news and early access</p>
+      <input type="email" name="EMAIL" autocomplete="email" required placeholder="Email" aria-label="Email" style="flex:1 1 180px;min-width:160px;border:0;background:#F7F7F5;color:#0D3B66;padding:11px 12px;font:400 15px/1.3 Inter,sans-serif">
+      <label style="flex:2 1 340px;display:flex;gap:8px;align-items:flex-start;margin:0;font:400 12.5px/1.4 Inter,sans-serif;color:rgba(247,247,245,.88)">
+        <input type="checkbox" name="consent" required style="flex:none;margin:2px 0 0;width:16px;height:16px;accent-color:#C6B18E">
+        <span>Yes, I'd like to receive emails from Precision Dexa about our opening, availability and offers. I can unsubscribe at any time.</span>
+      </label>
+      <button type="submit" style="flex:none;background:#F7F7F5;color:#0D3B66;border:0;padding:12px 16px;font:500 12px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase" class="pdx-book-light">Join the Waitlist</button>
+      <input type="hidden" name="tags" value="5061134">
+      <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="b_fce3c44d19c96d5c9faafb774_eeb6715336" tabindex="-1" value=""></div>
+      <p data-waitlist-status role="status" aria-live="polite" style="flex:1 1 100%;margin:0;font:400 13px/1.4 Inter,sans-serif;color:rgba(247,247,245,.75)">We'll send a quick email to confirm your address.</p>
+    </form>
+  </div>
 
 <footer style="background:#E7E1D6;border-top:1px solid #D9D1C1;padding:clamp(56px,7vw,88px) clamp(20px,5vw,56px) 40px">
     <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,72px)">
@@ -1164,6 +1171,7 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
         <img src="assets/precision-dexa-primary-light.svg" alt="Precision Dexa" width="445" height="175" loading="lazy" style="width:min(100%,220px);height:auto;display:block">
         <p style="margin:6px 0 0;font:500 10.5px/1.4 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#5A6068">Accurate Insights, Better Health</p>
         <p style="margin:24px 0 0;font:400 14.5px/1.7 Inter,sans-serif;color:#5A6068">19550 SE Brady Road, Suite 14<br>Camas, WA 98607<br><a href="tel:3606063117">360.606.3117</a></p>
+        <p style="margin:12px 0 0;max-width:34ch;font:400 14px/1.6 Inter,sans-serif;color:#5A6068">Enter through the CLASH Beauty Collective entrance, then find Suite 14 inside.</p>
         <p style="margin:16px 0 0;display:flex;gap:18px;font:500 12px/1 Inter,sans-serif;letter-spacing:.12em;text-transform:uppercase">
           <a href="https://www.instagram.com/precisiondexa" target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href="https://www.facebook.com/precisiondexa" target="_blank" rel="noopener noreferrer">Facebook</a>
@@ -1255,12 +1263,16 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
     render();
   }
 
-  function goWaitlist(){
-    if (state.page !== 'home') go('home');
+  function scrollToId(id){
     setTimeout(function(){
-      var el = document.getElementById('waitlist');
+      var el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }, 60);
+  }
+
+  function goWaitlist(){
+    if (state.page !== 'home') go('home');
+    scrollToId('waitlist');
   }
 
   function pickFact(n){
@@ -1271,14 +1283,11 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
 
   function fromHash(scroll){
     var h = (location.hash || '').replace('#', '');
-    if (h === 'waitlist') {
+    if (h === 'waitlist' || h === 'founding') {
       state.page = 'home';
       state.menuOpen = false;
       render();
-      setTimeout(function(){
-        var el = document.getElementById('waitlist');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 60);
+      scrollToId(h);
       return;
     }
     if (h === 'body-composition' || h === 'bone-density') {
@@ -1337,10 +1346,9 @@ a.pdx-book-light,a.pdx-book-light:hover,a.pdx-h5,a.pdx-h5:hover{color:#0D3B66 !i
     waitlist.addEventListener('submit', function(e){
       e.preventDefault();
       var status = waitlist.querySelector('[data-waitlist-status]');
-      var fname = waitlist.FNAME.value.trim();
       var email = waitlist.EMAIL.value.trim();
-      if (!fname || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        status.textContent = 'Please enter your first name and a valid email address.';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        status.textContent = 'Please enter a valid email address.';
         return;
       }
       if (!waitlist.consent.checked) {

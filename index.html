@@ -32,8 +32,8 @@
   ::selection { background: #C6B18E; color: #0D3B66; }
   :focus-visible { outline: 2px solid #5E7F6B; outline-offset: 3px; }
   @keyframes pdxIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-  @media (max-width: 1040px) { [data-navlinks] { display: none !important; } [data-burger] { display: flex !important; } }
-  @media (min-width: 1041px) { [data-mobilemenu] { display: none !important; } }
+  @media (max-width: 1100px) { [data-navlinks] { display: none !important; } [data-burger] { display: flex !important; } }
+  @media (min-width: 1101px) { [data-mobilemenu] { display: none !important; } }
   [data-navlinks] button, [data-cta] { white-space: nowrap; }
   @media (max-width: 560px) { header > div { gap: 12px !important; } [data-cta] { padding: 12px 12px !important; letter-spacing: .08em !important; } }
   @media (max-width: 400px) { [data-cta] { font-size: 11px !important; letter-spacing: .06em !important; } }
@@ -81,6 +81,7 @@ sc-if { display: contents; }
       </button>
 
       <nav data-navlinks="1" style="display:flex;align-items:center;gap:clamp(18px,2.4vw,32px)">
+        <button data-action="go" data-page="dexa" style="background:none;border:0;padding:4px 0;font:400 14px/1 Inter,sans-serif;color:#0D3B66">What is DEXA<sc-if data-if="atDexa"><span style="display:block;height:1px;background:#C6B18E;margin-top:5px"></span></sc-if></button>
         <button data-action="go" data-page="services" style="background:none;border:0;padding:4px 0;font:400 14px/1 Inter,sans-serif;color:#0D3B66">Services &amp; Pricing<sc-if data-if="atServices"><span style="display:block;height:1px;background:#C6B18E;margin-top:5px"></span></sc-if></button>
         <button data-action="go" data-page="bone" style="background:none;border:0;padding:4px 0;font:400 14px/1 Inter,sans-serif;color:#0D3B66">Bone Health<sc-if data-if="atBone"><span style="display:block;height:1px;background:#C6B18E;margin-top:5px"></span></sc-if></button>
         <button data-action="go" data-page="corporate" style="background:none;border:0;padding:4px 0;font:400 14px/1 Inter,sans-serif;color:#0D3B66">Corporate Wellness<sc-if data-if="atCorporate"><span style="display:block;height:1px;background:#C6B18E;margin-top:5px"></span></sc-if></button>
@@ -97,6 +98,7 @@ sc-if { display: contents; }
 
     <sc-if data-if="menuOpen">
       <div data-mobilemenu="1" style="border-top:1px solid #E7E1D6;background:#F7F7F5;padding:14px clamp(20px,5vw,56px) 24px;display:flex;flex-direction:column;align-items:flex-start;gap:2px">
+        <button data-action="go" data-page="dexa" style="background:none;border:0;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">What is DEXA</button>
         <button data-action="go" data-page="services" style="background:none;border:0;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Services &amp; Pricing</button>
         <button data-action="go" data-page="bone" style="background:none;border:0;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Bone Health</button>
         <button data-action="go" data-page="corporate" style="background:none;border:0;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Corporate Wellness</button>
@@ -370,6 +372,137 @@ sc-if { display: contents; }
       </div>
     </section>
 
+  </main>
+  </sc-if>
+
+  <sc-if data-if="isDexa">
+  <main style="animation:pdxIn .5s ease both">
+    <section style="padding:clamp(56px,7vw,104px) clamp(20px,5vw,56px) clamp(56px,7vw,96px)">
+      <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(36px,5vw,80px);align-items:center">
+        <div style="flex:1 1 520px;min-width:290px">
+          <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">What is DEXA</p>
+          <h1 style="margin:24px 0 0;font:400 clamp(32px,4.4vw,56px)/1.1 Georgia,serif;letter-spacing:-.02em;color:#0D3B66;text-wrap:balance">Dual&#8209;Energy X&#8209;ray <em style="font-style:italic;color:#5E7F6B">Absorptiometry.</em></h1>
+          <p style="margin:24px 0 0;max-width:52ch;font:400 clamp(16px,1.2vw,18px)/1.72 Inter,sans-serif;color:#4A555C;text-wrap:pretty">DEXA is a low-dose X-ray scan that measures what your body is made of — fat, lean tissue, and bone. Here's what the name means.</p>
+          <div style="margin-top:clamp(32px,4vw,48px);display:flex;flex-wrap:wrap;gap:24px 28px">
+            <div style="flex:1 1 220px;min-width:200px;border-top:2px solid #5E7F6B;padding-top:16px">
+              <p style="margin:0;font:400 22px/1.3 Georgia,serif;color:#0D3B66"><span style="color:#5E7F6B;font-style:italic">Dual Energy</span></p>
+              <p style="margin:10px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">The use of two different X-ray energy levels.</p>
+            </div>
+            <div style="flex:1 1 220px;min-width:200px;border-top:2px solid #5E7F6B;padding-top:16px">
+              <p style="margin:0;font:400 22px/1.3 Georgia,serif;color:#0D3B66"><span style="color:#5E7F6B;font-style:italic">X-ray</span></p>
+              <p style="margin:10px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">A low dose of ionizing radiation.</p>
+            </div>
+            <div style="flex:1 1 220px;min-width:200px;border-top:2px solid #5E7F6B;padding-top:16px">
+              <p style="margin:0;font:400 22px/1.3 Georgia,serif;color:#0D3B66"><span style="color:#5E7F6B;font-style:italic">Absorptiometry</span></p>
+              <p style="margin:10px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">A way to measure how much of the X-ray energy is absorbed by the body.</p>
+            </div>
+          </div>
+        </div>
+        <figure style="flex:1 1 300px;min-width:260px;max-width:370px;margin:0 auto;background:#0D3B66">
+          <img src="assets/dexa-scan-view.svg" alt="Illustration of a DEXA body composition scan showing fat, lean soft tissue, and bone" width="400" height="660" style="display:block;width:100%;height:auto">
+          <figcaption style="padding:16px 20px 18px;border-top:1px solid rgba(247,247,245,.15);display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;font:400 13px/1 Inter,sans-serif;color:rgba(247,247,245,.85)">
+            <span style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#E3D2AF"></span>Fat mass</span>
+            <span style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#7FA28C"></span>Lean soft tissue</span>
+            <span style="display:flex;align-items:center;gap:7px"><span style="width:11px;height:11px;background:#F7F7F5"></span>Bone</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section style="background:#E7E1D6;padding:clamp(64px,8vw,104px) clamp(20px,5vw,56px)">
+      <div style="max-width:1240px;margin:0 auto">
+        <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B;color:#0D3B66">Two scans, one technology</p>
+        <h2 style="margin:22px 0 0;font:400 clamp(27px,3.5vw,42px)/1.18 Georgia,serif;letter-spacing:-.015em;color:#0D3B66;text-wrap:balance">What a DEXA scan <em style="font-style:italic;color:#5E7F6B">can measure.</em></h2>
+        <div style="margin-top:clamp(32px,4vw,48px);display:flex;flex-wrap:wrap;gap:clamp(20px,2.5vw,32px)">
+          <div style="flex:1 1 340px;min-width:270px;background:#F7F7F5;padding:clamp(28px,3vw,40px);border-top:2px solid #0D3B66">
+            <h3 style="margin:0;font:400 24px/1.3 Georgia,serif;color:#0D3B66">Bone Density</h3>
+            <p style="margin:12px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">Measures bone mineral density to help assess bone health and evaluate for osteoporosis.</p>
+          </div>
+          <div style="flex:1 1 340px;min-width:270px;background:#F7F7F5;padding:clamp(28px,3vw,40px);border-top:2px solid #5E7F6B">
+            <h3 style="margin:0;font:400 24px/1.3 Georgia,serif;color:#0D3B66">Body Composition</h3>
+            <p style="margin:12px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">Estimates fat mass, lean mass, and body fat distribution.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:clamp(64px,8vw,112px) clamp(20px,5vw,56px)">
+      <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:clamp(20px,2.5vw,32px)">
+        <div style="flex:1 1 400px;min-width:280px;background:#fff;border:1px solid #E7E1D6;padding:clamp(26px,3vw,40px);border-top:2px solid #C6B18E">
+          <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">Fat mass</p>
+          <p style="margin:16px 0 0;font:400 clamp(20px,1.8vw,24px)/1.4 Georgia,serif;color:#0D3B66">Fat mass is the total weight of the body's fat tissue.</p>
+          <p style="margin:20px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">It includes:</p>
+          <ul style="list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:8px;height:1px;background:#C6B18E"></span><span style="font:400 16px/1.7 Inter,sans-serif;color:#4A555C;color:#33424C"><strong style="font-weight:500;color:#0D3B66">Subcutaneous fat:</strong> fat stored just beneath the skin.</span></li>
+            <li style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:8px;height:1px;background:#C6B18E"></span><span style="font:400 16px/1.7 Inter,sans-serif;color:#4A555C;color:#33424C"><strong style="font-weight:500;color:#0D3B66">Visceral fat:</strong> fat stored deep in the abdomen around internal organs.</span></li>
+            <li style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:8px;height:1px;background:#C6B18E"></span><span style="font:400 16px/1.7 Inter,sans-serif;color:#4A555C;color:#33424C">Fat stored in other areas throughout the body.</span></li>
+          </ul>
+          <p style="margin:22px 0 0;padding-top:18px;border-top:1px solid #E7E1D6;font:400 16px/1.7 Inter,sans-serif;color:#4A555C"><strong style="font-weight:500;color:#0D3B66">Why it matters:</strong> Fat plays important roles in energy storage, hormone function, insulation, and protecting organs. The amount and distribution of fat can also help assess certain health risks.</p>
+        </div>
+        <div style="flex:1 1 400px;min-width:280px;background:#fff;border:1px solid #E7E1D6;padding:clamp(26px,3vw,40px);border-top:2px solid #5E7F6B">
+          <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">Lean mass</p>
+          <p style="margin:16px 0 0;font:400 clamp(20px,1.8vw,24px)/1.4 Georgia,serif;color:#0D3B66">Lean mass is the body's non-fat soft tissue.</p>
+          <p style="margin:20px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">It includes:</p>
+          <ul style="list-style:none;margin:12px 0 0;padding:0;display:flex;flex-direction:column;gap:10px">
+            <li style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:8px;height:1px;background:#C6B18E"></span><span style="font:400 16px/1.7 Inter,sans-serif;color:#4A555C;color:#33424C">Muscle tissue</span></li>
+            <li style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:8px;height:1px;background:#C6B18E"></span><span style="font:400 16px/1.7 Inter,sans-serif;color:#4A555C;color:#33424C">Organs and other soft tissues</span></li>
+            <li style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:8px;height:1px;background:#C6B18E"></span><span style="font:400 16px/1.7 Inter,sans-serif;color:#4A555C;color:#33424C">Body water</span></li>
+            <li style="display:flex;gap:12px;align-items:flex-start"><span style="flex:none;margin-top:11px;width:8px;height:1px;background:#C6B18E"></span><span style="font:400 16px/1.7 Inter,sans-serif;color:#4A555C;color:#33424C">Connective tissue</span></li>
+          </ul>
+          <p style="margin:22px 0 0;padding-top:18px;border-top:1px solid #E7E1D6;font:400 16px/1.7 Inter,sans-serif;color:#4A555C"><strong style="font-weight:500;color:#0D3B66">Why it matters:</strong> Lean mass supports movement, strength, physical function, and many essential body processes. Monitoring changes can be especially useful during strength training, aging, and weight-management programs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-top:1px solid #E7E1D6;padding:clamp(64px,8vw,112px) clamp(20px,5vw,56px)">
+      <div style="max-width:1240px;margin:0 auto">
+        <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">How DEXA separates the two</p>
+        <h2 style="margin:22px 0 0;font:400 clamp(27px,3.5vw,42px)/1.18 Georgia,serif;letter-spacing:-.015em;color:#0D3B66;text-wrap:balance">Three components, <em style="font-style:italic;color:#5E7F6B">measured separately.</em></h2>
+        <p style="margin:20px 0 0;max-width:60ch;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">A DEXA body composition scan estimates three main components:</p>
+        <img src="assets/dexa-three-components.svg" alt="Three body illustrations highlighting fat mass, lean soft tissue, and bone in turn" width="760" height="520" style="display:block;width:100%;max-width:640px;height:auto;margin:clamp(28px,3.4vw,40px) auto 0">
+        <div style="margin-top:clamp(28px,3.4vw,40px);display:flex;flex-wrap:wrap;gap:clamp(20px,2.5vw,32px)">
+          <div style="flex:1 1 240px;min-width:220px;background:#fff;border:1px solid #E7E1D6;padding:clamp(26px,3vw,40px)">
+            <span style="display:block;width:28px;height:28px;background:#C6B18E;opacity:.75"></span>
+            <h3 style="margin:18px 0 0;font:400 22px/1.3 Georgia,serif;color:#0D3B66">Fat mass</h3>
+            <p style="margin:10px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">Total estimated fat tissue, typically reported in pounds or kilograms.</p>
+          </div>
+          <div style="flex:1 1 240px;min-width:220px;background:#fff;border:1px solid #E7E1D6;padding:clamp(26px,3vw,40px)">
+            <span style="display:block;width:28px;height:28px;background:#5E7F6B;"></span>
+            <h3 style="margin:18px 0 0;font:400 22px/1.3 Georgia,serif;color:#0D3B66">Lean soft tissue</h3>
+            <p style="margin:10px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">Muscles, organs, water, and other soft tissues, excluding fat and bone mineral.</p>
+          </div>
+          <div style="flex:1 1 240px;min-width:220px;background:#fff;border:1px solid #E7E1D6;padding:clamp(26px,3vw,40px)">
+            <span style="display:block;width:28px;height:28px;background:#0D3B66;"></span>
+            <h3 style="margin:18px 0 0;font:400 22px/1.3 Georgia,serif;color:#0D3B66">Bone mineral content</h3>
+            <p style="margin:10px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">The mineral content measured in the skeleton.</p>
+          </div>
+        </div>
+        <div style="margin-top:clamp(28px,3.4vw,40px);background:#0D3B66;padding:clamp(22px,3vw,32px) clamp(22px,3vw,40px);display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 16px;text-align:center;font:400 clamp(17px,1.7vw,22px)/1.4 Georgia,serif;color:#F7F7F5">
+          <span>Total body mass</span><span style="color:#C6B18E">=</span><span>Fat mass</span><span style="color:#C6B18E">+</span><span>Lean soft tissue</span><span style="color:#C6B18E">+</span><span>Bone mineral content</span>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#E7E1D6;padding:clamp(64px,8vw,112px) clamp(20px,5vw,56px)">
+      <div style="max-width:880px;margin:0 auto;text-align:center">
+        <img src="assets/amber-headshot.png" alt="Amber, RT" width="88" height="88" style="display:block;margin:0 auto;width:88px;height:88px">
+        <blockquote style="margin:26px 0 0">
+          <p style="margin:0;font:400 clamp(20px,2.2vw,27px)/1.5 Georgia,serif;font-style:italic;color:#0D3B66;text-wrap:pretty">“Your body weight tells us how much you weigh, but it doesn't tell us what your weight is made of.”</p>
+          <p style="margin:22px auto 0;max-width:62ch;font:400 clamp(16px,1.2vw,18px)/1.75 Inter,sans-serif;color:#4A555C;text-wrap:pretty">A DEXA body composition scan helps us distinguish fat tissue from lean tissue and measure bone mineral content. This gives us a more detailed picture of your body composition than the number on a scale alone. Our goal is to help you understand your results, track meaningful changes over time, and make informed decisions about your health and wellness.</p>
+        </blockquote>
+        <p style="margin:22px 0 0;font:400 19px/1.3 Georgia,serif;font-style:italic;color:#0D3B66">— Amber, RT</p>
+      </div>
+    </section>
+
+    <section style="background:#0D3B66;padding:clamp(64px,8vw,104px) clamp(20px,5vw,56px)">
+      <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px 36px;align-items:center;justify-content:space-between">
+        <h2 style="margin:0;flex:1 1 420px;font:400 clamp(28px,3.6vw,44px)/1.16 Georgia,serif;letter-spacing:-.015em;color:#F7F7F5">See what your weight <em style="font-style:italic;color:#C6B18E">is made of.</em></h2>
+        <div style="display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center">
+          <button data-action="waitlist" style="background:#F7F7F5;color:#0D3B66;border:0;padding:19px 34px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-book-light">Join the Waitlist</button>
+          <button data-action="book" style="background:none;border:0;border-bottom:1px solid #C6B18E;padding:0 0 5px;font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#F7F7F5">Book a scan &rarr;</button>
+        </div>
+      </div>
+    </section>
   </main>
   </sc-if>
 
@@ -697,6 +830,7 @@ sc-if { display: contents; }
         <p style="margin:0;font:500 10.5px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#5E7F6B">For Individuals</p>
         <div style="margin-top:18px;display:flex;flex-direction:column;gap:12px;align-items:flex-start">
           <button data-action="book" style="background:none;border:0;padding:0;font:400 15px/1.4 Inter,sans-serif;color:#33424C" class="pdx-h10">Book a Scan</button>
+          <button data-action="go" data-page="dexa" style="background:none;border:0;padding:0;font:400 15px/1.4 Inter,sans-serif;color:#33424C" class="pdx-h11">What is DEXA</button>
           <button data-action="go" data-page="services" style="background:none;border:0;padding:0;font:400 15px/1.4 Inter,sans-serif;color:#33424C" class="pdx-h11">Services &amp; Pricing</button>
           <button data-action="go" data-page="bone" style="background:none;border:0;padding:0;font:400 15px/1.4 Inter,sans-serif;color:#33424C" class="pdx-h12">Bone Health Facts</button>
           <button data-action="go" data-page="book" style="background:none;border:0;padding:0;font:400 15px/1.4 Inter,sans-serif;color:#33424C" class="pdx-h13">What to Wear</button>
@@ -733,14 +867,14 @@ sc-if { display: contents; }
 <script>
 (function(){
   var JANE_URL = 'https://precisiondexa.janeapp.com';
-  var PAGES = ['home','services','bone','corporate','about','book','contact'];
+  var PAGES = ['home','dexa','services','bone','corporate','about','book','contact'];
   var state = { page: 'home', fact: 0, menuOpen: false, factInterval: 18 };
   var timer = null;
 
   function computeFlags(){
     var f = {};
     PAGES.forEach(function(p){ f['is' + cap(p)] = state.page === p; });
-    ['services','bone','corporate','about','contact'].forEach(function(p){
+    ['dexa','services','bone','corporate','about','contact'].forEach(function(p){
       f['at' + cap(p)] = state.page === p;
     });
     f.menuOpen = state.menuOpen;

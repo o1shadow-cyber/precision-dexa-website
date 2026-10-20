@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Precision Dexa — DEXA Body Composition Scanning in Camas, WA</title>
-<meta name="description" content="Clinical-grade DEXA body composition scanning in Camas, WA. Fat, muscle, and bone density measured with precision in about 15 minutes. $149, no insurance needed.">
+<meta name="description" content="DEXA body composition scans and diagnostic bone density scans in Camas, WA. See your fat, lean mass, and bone health measured with precision.">
 <meta name="theme-color" content="#F7F7F5">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Precision Dexa">
 <meta property="og:url" content="https://www.precisiondexa.com/">
 <meta property="og:title" content="Precision Dexa — DEXA Body Composition Scanning in Camas, WA">
-<meta property="og:description" content="Clinical-grade DEXA body composition scanning in Camas, WA. Fat, muscle, and bone density measured with precision in about 15 minutes. $149, no insurance needed.">
+<meta property="og:description" content="DEXA body composition scans and diagnostic bone density scans in Camas, WA. See your fat, lean mass, and bone health measured with precision.">
 <meta property="og:image" content="https://www.precisiondexa.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -67,6 +67,15 @@ sc-if { display: contents; }
 .pdx-h20:disabled{opacity:.6;cursor:default}
 .pdx-input:focus{outline:none;border-color:#5E7F6B;background:#fff}
 .pdx-input-dark:focus{outline:none;border-color:#C6B18E;background:rgba(247,247,245,.12)}
+.pdx-sage-btn:hover{background:#4E6C5A}
+.pdx-cmp{background:#F7F7F5;border:1px solid #D9D1C1}
+.pdx-cmp-row{display:grid;grid-template-columns:1.1fr 1.5fr 1.5fr;border-top:1px solid #D9D1C1}
+.pdx-cmp-row:first-child{border-top:0}
+.pdx-cmp-k,.pdx-cmp-v{padding:16px 20px;font:400 15px/1.55 Inter,sans-serif;color:#33424C}
+.pdx-cmp-k{font-weight:500;color:#0D3B66}
+.pdx-cmp-head .pdx-cmp-v{font:400 19px/1.3 Georgia,serif;color:#0D3B66}
+.pdx-cmp-row:last-child .pdx-cmp-v{font:400 20px/1.3 Georgia,serif;color:#0D3B66}
+@media (max-width:700px){.pdx-cmp-head{display:none}.pdx-cmp-row{grid-template-columns:1fr;border-top:1px solid #D9D1C1}.pdx-cmp-row:nth-child(2){border-top:0}.pdx-cmp-k{padding-bottom:4px}.pdx-cmp-v{padding-top:6px;padding-bottom:6px}.pdx-cmp-v:last-child{padding-bottom:16px}.pdx-cmp-v::before{content:attr(data-col);display:block;font:500 10.5px/1.6 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#5E7F6B}}
 </style>
 </head>
 <body>
@@ -423,6 +432,7 @@ sc-if { display: contents; }
             <p style="margin:12px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">Estimates fat mass, lean mass, and body fat distribution.</p>
           </div>
         </div>
+        <p style="margin:26px 0 0"><button data-action="go" data-page="services" style="background:none;border:0;border-bottom:1px solid #C6B18E;padding:0 0 5px;font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase;color:#0D3B66">Compare the two scans &amp; pricing &rarr;</button></p>
       </div>
     </section>
 
@@ -508,32 +518,92 @@ sc-if { display: contents; }
 
   <sc-if data-if="isServices">
   <main style="animation:pdxIn .5s ease both">
-    <section style="padding:clamp(56px,7vw,104px) clamp(20px,5vw,56px) clamp(48px,6vw,80px)">
-      <div style="max-width:1000px;margin:0 auto">
-        <p style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">Services &amp; Pricing</p>
-        <h1 style="margin:24px 0 0;font:400 clamp(34px,4.8vw,60px)/1.1 Georgia,serif;letter-spacing:-.02em;color:#0D3B66;text-wrap:pretty">Know more about your health — <em style="font-style:italic;color:#5E7F6B">$149.</em></h1>
-        <p style="margin:26px 0 0;max-width:56ch;font:400 clamp(16px,1.15vw,18px)/1.72 Inter,sans-serif;color:#4A555C">One scan, one price, about fifteen minutes. Everything below is included.</p>
+    <section style="padding:clamp(56px,7vw,104px) clamp(20px,5vw,56px) clamp(40px,5vw,64px)">
+      <div style="max-width:1240px;margin:0 auto">
+        <p style="margin:0;font:500 11px/1.4 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B">Services &amp; Pricing</p>
+        <h1 style="margin:24px 0 0;max-width:18em;font:400 clamp(34px,4.8vw,60px)/1.1 Georgia,serif;letter-spacing:-.02em;color:#0D3B66;text-wrap:balance">Two different scans. <em style="font-style:italic;color:#5E7F6B">Two important perspectives on your health.</em></h1>
+        <p style="margin:26px 0 0;max-width:60ch;font:400 clamp(16px,1.15vw,18px)/1.72 Inter,sans-serif;color:#4A555C">Whether you're exploring your body composition or taking steps to understand your bone health, Precision Dexa provides detailed measurements to help you make more informed decisions about your health journey.</p>
+        <div style="margin-top:32px;display:flex;flex-wrap:wrap;gap:14px">
+          <a href="#body-composition" data-jump="body-composition" style="flex:1 1 260px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px;background:#fff;border:1px solid #E7E1D6;border-left:3px solid #5E7F6B;color:#0D3B66"><span style="font:400 19px/1.3 Georgia,serif">Body Composition</span><span style="font:400 22px/1 Georgia,serif;color:#5E7F6B">$149</span></a>
+          <a href="#bone-density" data-jump="bone-density" style="flex:1 1 260px;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:18px 22px;background:#fff;border:1px solid #E7E1D6;border-left:3px solid #0D3B66;color:#0D3B66"><span style="font:400 19px/1.3 Georgia,serif">Diagnostic Bone Density</span><span style="font:400 22px/1 Georgia,serif;color:#0D3B66">$199</span></a>
+        </div>
       </div>
     </section>
 
-    <section style="padding:0 clamp(20px,5vw,56px) clamp(72px,9vw,120px)">
-      <div style="max-width:1000px;margin:0 auto;background:#fff;border:1px solid #E7E1D6;border-top:2px solid #C6B18E">
-        <div style="display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:baseline;padding:clamp(28px,3.4vw,44px);border-bottom:1px solid #E7E1D6">
-          <h2 style="margin:0;font:400 clamp(24px,2.6vw,32px)/1.25 Georgia,serif;color:#0D3B66">DEXA Body Composition Scan</h2>
-          <p style="margin:0;font:400 clamp(30px,3.4vw,42px)/1 Georgia,serif;color:#5E7F6B">$149</p>
+    <section id="body-composition" style="scroll-margin-top:100px;padding:0 clamp(20px,5vw,56px) clamp(32px,4vw,48px)">
+      <div style="max-width:1240px;margin:0 auto;background:#fff;border:1px solid #E7E1D6;border-top:3px solid #5E7F6B">
+        <div style="display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:flex-end;padding:clamp(26px,3.4vw,44px);border-bottom:1px solid #E7E1D6">
+          <div style="flex:1 1 420px">
+            <span style="display:inline-block;padding:7px 11px;background:#5E7F6B;color:#F7F7F5;font:500 10.5px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase">Wellness assessment</span>
+            <h2 style="margin:18px 0 0;font:400 clamp(27px,3.2vw,40px)/1.15 Georgia,serif;letter-spacing:-.015em;color:#0D3B66">Body Composition Scan</h2>
+            <p style="margin:0;font:500 11px/1.4 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;margin-top:12px;color:#5E7F6B">Understand what your body is made of</p>
+          </div>
+          <p style="margin:0;font:400 clamp(34px,3.8vw,48px)/1 Georgia,serif;color:#5E7F6B">$149</p>
         </div>
-        <ul style="list-style:none;margin:0;padding:clamp(28px,3.4vw,44px);display:flex;flex-wrap:wrap;gap:18px 40px">
-          <li style="flex:1 1 300px;display:flex;gap:13px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Bone-related measurements</span></li>
-          <li style="flex:1 1 300px;display:flex;gap:13px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Body fat information</span></li>
-          <li style="flex:1 1 300px;display:flex;gap:13px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Lean mass information</span></li>
-          <li style="flex:1 1 300px;display:flex;gap:13px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Personalized results and report</span></li>
-          <li style="flex:1 1 300px;display:flex;gap:13px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Quick, noninvasive examination</span></li>
-          <li style="flex:1 1 300px;display:flex;gap:13px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Cash-pay pricing</span></li>
-          <li style="flex:1 1 300px;display:flex;gap:13px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Superbill provided for patients who wish to seek potential insurance reimbursement</span></li>
-        </ul>
-        <div style="padding:clamp(28px,3.4vw,44px);border-top:1px solid #E7E1D6;background:#F7F7F5;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
-          <p style="margin:0;flex:1 1 380px;font:400 clamp(19px,2.1vw,26px)/1.4 Georgia,serif;color:#0D3B66">No insurance required. No complicated billing. <em style="font-style:italic;color:#5E7F6B">One simple price.</em></p>
-          <button data-action="book" style="background:#0D3B66;color:#F7F7F5;border:0;padding:17px 32px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-h6">Book Now</button>
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,56px);padding:clamp(26px,3.4vw,44px)">
+          <div style="flex:1 1 420px;min-width:260px">
+            <p style="margin:0 0 16px;font:400 16px/1.7 Inter,sans-serif;color:#4A555C;font-size:clamp(16px,1.15vw,17.5px)">Your weight tells you how much you weigh. A body composition scan gives you a deeper look at what makes up that weight.</p><p style="margin:0 0 16px;font:400 16px/1.7 Inter,sans-serif;color:#4A555C;font-size:clamp(16px,1.15vw,17.5px)">Using advanced DEXA technology, a body composition scan estimates your body fat, lean mass, and fat distribution, including visceral fat in the abdominal region. It helps you better understand how your body is changing beyond what you see on a scale.</p>
+            <div style="margin-top:28px;padding:20px 22px;background:#F7F7F5;border-left:2px solid #C6B18E">
+              <h3 style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#0D3B66">The goal</h3>
+              <p style="margin:10px 0 0;font:400 clamp(18px,1.6vw,21px)/1.45 Georgia,serif;color:#0D3B66">Understand more than your weight. See measurable changes in your body composition over time.</p>
+            </div>
+            <p style="margin:18px 0 0;font:italic 400 14px/1.6 Inter,sans-serif;color:#5A6068">Body composition scans provide measurements and estimates, not a diagnosis of overall health or fitness.</p>
+          </div>
+          <div style="flex:1 1 380px;min-width:260px;display:flex;flex-direction:column;gap:30px">
+            <div><h3 style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#0D3B66">What you'll learn</h3><ul style="list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:12px"><li style="display:flex;gap:12px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:4px" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Body fat mass and body fat percentage</span></li><li style="display:flex;gap:12px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:4px" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Lean mass, including muscle and other lean tissues</span></li><li style="display:flex;gap:12px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:4px" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Fat distribution throughout the body</span></li><li style="display:flex;gap:12px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5E7F6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:4px" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Visceral adipose tissue (VAT), an estimate of fat within the abdominal cavity</span></li></ul></div>
+            <div><h3 style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#0D3B66">Who might benefit?</h3><p style="margin:14px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">Individuals focused on fitness, strength, healthy aging, athletic performance, or monitoring body composition changes over time. It may also be useful for people working with a healthcare professional on weight-management goals, including those using GLP-1 medications.</p></div>
+            <div><button data-action="book" style="background:#5E7F6B;color:#F7F7F5;border:0;padding:17px 30px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-sage-btn">Book Body Composition</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="bone-density" style="scroll-margin-top:100px;padding:0 clamp(20px,5vw,56px) clamp(32px,4vw,48px)">
+      <div style="max-width:1240px;margin:0 auto;background:#fff;border:1px solid #E7E1D6;border-top:3px solid #0D3B66">
+        <div style="display:flex;flex-wrap:wrap;gap:16px 28px;justify-content:space-between;align-items:flex-end;padding:clamp(26px,3.4vw,44px);border-bottom:1px solid #E7E1D6">
+          <div style="flex:1 1 420px">
+            <span style="display:inline-block;padding:7px 11px;background:#0D3B66;color:#F7F7F5;font:500 10.5px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase">Diagnostic · Clinical</span>
+            <h2 style="margin:18px 0 0;font:400 clamp(27px,3.2vw,40px)/1.15 Georgia,serif;letter-spacing:-.015em;color:#0D3B66">Diagnostic Bone Density Scan</h2>
+            <p style="margin:0;font:500 11px/1.4 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;margin-top:12px;color:#0D3B66">Understand the strength of your bones</p>
+          </div>
+          <p style="margin:0;font:400 clamp(34px,3.8vw,48px)/1 Georgia,serif;color:#0D3B66">$199</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:clamp(28px,4vw,56px);padding:clamp(26px,3.4vw,44px)">
+          <div style="flex:1 1 420px;min-width:260px">
+            <p style="margin:0 0 16px;font:400 16px/1.7 Inter,sans-serif;color:#4A555C;font-size:clamp(16px,1.15vw,17.5px)">Your bones support you every day, but changes in bone density often happen without noticeable symptoms.</p><p style="margin:0 0 16px;font:400 16px/1.7 Inter,sans-serif;color:#4A555C;font-size:clamp(16px,1.15vw,17.5px)">A diagnostic bone density scan uses DEXA (dual-energy X-ray absorptiometry) technology to measure bone mineral density, helping a qualified healthcare provider assess bone health and evaluate for osteoporosis.</p>
+            <div style="margin-top:28px;padding:20px 22px;background:#F7F7F5;border-left:2px solid #C6B18E">
+              <h3 style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#0D3B66">The goal</h3>
+              <p style="margin:10px 0 0;font:400 clamp(18px,1.6vw,21px)/1.45 Georgia,serif;color:#0D3B66">Gain important insight into your bone health so you and your healthcare provider can make informed decisions about your care.</p>
+            </div>
+            <div style="margin-top:18px;padding:16px 18px;border:1px solid #0D3B66;font:400 14.5px/1.6 Inter,sans-serif;color:#33424C"><strong style="font-weight:600;color:#0D3B66">Important:</strong> Diagnostic bone density testing is different from a general wellness scan. Results require appropriate clinical interpretation by a qualified healthcare provider.</div>
+          </div>
+          <div style="flex:1 1 380px;min-width:260px;display:flex;flex-direction:column;gap:30px">
+            <div><h3 style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#0D3B66">What you'll learn</h3><ul style="list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:12px"><li style="display:flex;gap:12px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0D3B66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:4px" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Bone mineral density measurements</span></li><li style="display:flex;gap:12px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0D3B66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:4px" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">T-scores and Z-scores, when applicable</span></li><li style="display:flex;gap:12px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0D3B66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:4px" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Whether bone density falls within expected ranges for the appropriate comparison group</span></li><li style="display:flex;gap:12px;align-items:flex-start"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#0D3B66" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:4px" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="font:400 16px/1.6 Inter,sans-serif;color:#33424C">Information that helps your healthcare provider assess osteoporosis risk and determine appropriate follow-up</span></li></ul></div>
+            <div><h3 style="margin:0;font:500 11px/1 Inter,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:#0D3B66">Who might benefit?</h3><p style="margin:14px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">People who have been referred for bone density testing, individuals with risk factors for osteoporosis, and those whose healthcare providers recommend screening or monitoring bone health.</p></div>
+            <div><button data-action="book" style="background:#0D3B66;color:#F7F7F5;border:0;padding:17px 30px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-h6">Book Bone Density Scan</button></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#E7E1D6;margin-top:clamp(40px,5vw,72px);padding:clamp(64px,8vw,104px) clamp(20px,5vw,56px)">
+      <div style="max-width:1240px;margin:0 auto">
+        <p style="margin:0;font:500 11px/1.4 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#0D3B66">Choosing a scan</p>
+        <h2 style="margin:20px 0 0;font:400 clamp(27px,3.5vw,42px)/1.18 Georgia,serif;letter-spacing:-.015em;color:#0D3B66">Not sure which scan <em style="font-style:italic;color:#5E7F6B">is right for you?</em></h2>
+        <div style="margin-top:clamp(28px,3.4vw,40px);display:flex;flex-wrap:wrap;gap:clamp(20px,2.5vw,32px)">
+          <div style="flex:1 1 340px;min-width:260px;background:#F7F7F5;padding:clamp(26px,3vw,38px);border-top:3px solid #5E7F6B">
+            <h3 style="margin:0;font:400 23px/1.3 Georgia,serif;color:#0D3B66">Choose Body Composition if…</h3>
+            <p style="margin:12px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">You want to understand your body fat, lean mass, visceral fat estimates, or changes associated with fitness, training, or weight management.</p>
+          </div>
+          <div style="flex:1 1 340px;min-width:260px;background:#F7F7F5;padding:clamp(26px,3vw,38px);border-top:3px solid #0D3B66">
+            <h3 style="margin:0;font:400 23px/1.3 Georgia,serif;color:#0D3B66">Choose Diagnostic Bone Density if…</h3>
+            <p style="margin:12px 0 0;font:400 16px/1.7 Inter,sans-serif;color:#4A555C">You need a clinical assessment of bone mineral density, have been referred by a healthcare provider, or need testing to evaluate for osteoporosis.</p>
+          </div>
+        </div>
+        <p style="margin:26px 0 0;max-width:70ch;font:400 16px/1.7 Inter,sans-serif;color:#4A555C;color:#33424C">These are different types of assessments, and one does not replace the other. If you're unsure, <button data-action="go" data-page="contact" style="background:none;border:0;padding:0;font:inherit;color:#0D3B66;text-decoration:underline;text-underline-offset:3px">contact Precision Dexa</button> or your healthcare provider for guidance.</p>
+
+        <div class="pdx-cmp" role="table" aria-label="Body composition and diagnostic bone density compared" style="margin-top:clamp(36px,4.4vw,56px)">
+          <div class="pdx-cmp-row pdx-cmp-head" role="row"><div class="pdx-cmp-k"></div><div class="pdx-cmp-v" style="color:#5E7F6B">Body composition</div><div class="pdx-cmp-v">Diagnostic bone density</div></div>
+          <div class="pdx-cmp-row"><div class="pdx-cmp-k">Primary focus</div><div class="pdx-cmp-v" data-col="Body composition">Body fat and lean mass</div><div class="pdx-cmp-v" data-col="Diagnostic bone density">Bone mineral density</div></div><div class="pdx-cmp-row"><div class="pdx-cmp-k">Helps you understand</div><div class="pdx-cmp-v" data-col="Body composition">Body composition and its changes</div><div class="pdx-cmp-v" data-col="Diagnostic bone density">Bone health and osteoporosis evaluation</div></div><div class="pdx-cmp-row"><div class="pdx-cmp-k">Common measurements</div><div class="pdx-cmp-v" data-col="Body composition">Fat mass, lean mass, body fat %, VAT estimate</div><div class="pdx-cmp-v" data-col="Diagnostic bone density">Bone mineral density, T-scores, Z-scores</div></div><div class="pdx-cmp-row"><div class="pdx-cmp-k">Typical purpose</div><div class="pdx-cmp-v" data-col="Body composition">Wellness, fitness and body composition tracking</div><div class="pdx-cmp-v" data-col="Diagnostic bone density">Clinical evaluation and monitoring</div></div><div class="pdx-cmp-row"><div class="pdx-cmp-k">Results reviewed by</div><div class="pdx-cmp-v" data-col="Body composition">Explained by your qualified scan professional within their scope</div><div class="pdx-cmp-v" data-col="Diagnostic bone density">Interpreted by a qualified healthcare provider</div></div><div class="pdx-cmp-row"><div class="pdx-cmp-k">Price</div><div class="pdx-cmp-v" data-col="Body composition">$149</div><div class="pdx-cmp-v" data-col="Diagnostic bone density">$199</div></div>
         </div>
       </div>
     </section>
@@ -598,6 +668,7 @@ sc-if { display: contents; }
         </ul>
         <div style="margin-top:clamp(40px,5vw,64px);display:flex;flex-wrap:wrap;gap:20px;align-items:center">
           <button data-action="book" style="background:#0D3B66;color:#F7F7F5;border:0;padding:17px 32px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-h7">Book Your Scan</button>
+          <p style="margin:18px 0 0;font:400 15px/1.6 Inter,sans-serif;color:#4A555C">Looking for a clinical bone density assessment? <button data-action="go" data-page="services" data-scroll="bone-density" style="background:none;border:0;padding:0;font:inherit;color:#0D3B66;text-decoration:underline;text-underline-offset:3px">See our Diagnostic Bone Density Scan &rarr;</button></p>
           <p style="margin:0;max-width:64ch;font:400 13px/1.65 Inter,sans-serif;color:#8A8378">DEXA results are not a diagnosis by themselves and should be interpreted by an appropriately qualified healthcare professional in the context of the patient's medical history and other information.</p>
         </div>
       </div>
@@ -679,7 +750,7 @@ sc-if { display: contents; }
       <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:28px 36px;align-items:center;justify-content:space-between">
         <div style="flex:1 1 420px">
           <h2 style="margin:0;font:400 clamp(26px,3.2vw,40px)/1.18 Georgia,serif;letter-spacing:-.015em;color:#F7F7F5">Booking just <em style="font-style:italic;color:#C6B18E">for yourself?</em></h2>
-          <p style="margin:14px 0 0;max-width:52ch;font:400 16px/1.65 Inter,sans-serif;color:rgba(247,247,245,.78)">Individual scans are $149 and take about 15 minutes. Pick a time online.</p>
+          <p style="margin:14px 0 0;max-width:52ch;font:400 16px/1.65 Inter,sans-serif;color:rgba(247,247,245,.78)">Individual body composition scans are $149 and diagnostic bone density scans are $199. Pick a time online.</p>
         </div>
         <button data-action="book" style="background:#F7F7F5;color:#0D3B66;border:0;padding:19px 34px;font:500 12.5px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase" class="pdx-book-light">Book a Scan</button>
       </div>
@@ -930,13 +1001,27 @@ sc-if { display: contents; }
   }
 
   document.body.addEventListener('click', function(e){
+    var jump = e.target.closest('[data-jump]');
+    if (jump) {
+      e.preventDefault();
+      var target = document.getElementById(jump.getAttribute('data-jump'));
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
     var el = e.target.closest('[data-action]');
     if (!el) return;
     e.preventDefault();
     var action = el.getAttribute('data-action');
     if (action === 'book') window.location.href = JANE_URL;
     else if (action === 'waitlist') goWaitlist();
-    else if (action === 'go') go(el.getAttribute('data-page'));
+    else if (action === 'go') {
+      go(el.getAttribute('data-page'));
+      var scrollTo = el.getAttribute('data-scroll');
+      if (scrollTo) setTimeout(function(){
+        var t = document.getElementById(scrollTo);
+        if (t) t.scrollIntoView({ behavior: 'smooth' });
+      }, 60);
+    }
     else if (action === 'toggleMenu') { state.menuOpen = !state.menuOpen; render(); }
     else if (action === 'pickFact') pickFact(parseInt(el.getAttribute('data-fact'), 10));
   });

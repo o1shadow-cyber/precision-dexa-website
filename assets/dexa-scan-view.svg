@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 660" role="img" aria-label="Illustration of a DEXA body composition scan showing fat, lean tissue, and bone">
+<defs><pattern id="scan" width="400" height="6" patternUnits="userSpaceOnUse"><rect width="400" height="1" fill="#F7F7F5" opacity=".05"/></pattern>
+<linearGradient id="beam" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#C6B18E" stop-opacity="0"/><stop offset="1" stop-color="#C6B18E" stop-opacity=".35"/></linearGradient></defs>
+<rect width="400" height="660" fill="#0D3B66"/><rect width="400" height="660" fill="url(#scan)"/>
+<!-- Fat mass: outer layer -->
+  <g opacity=".9" fill="#E3D2AF">
+    <g fill="none" stroke="#E3D2AF" stroke-linecap="round">
+      <g stroke-width="46"><path d="M146 148 Q124 196 114 250"/><path d="M254 148 Q276 196 286 250"/></g>
+      <g stroke-width="36"><path d="M114 250 Q102 300 96 344"/><path d="M286 250 Q298 300 304 344"/></g>
+      <g stroke-width="70"><path d="M176 352 Q170 414 168 474"/><path d="M224 352 Q230 414 232 474"/></g>
+      <g stroke-width="48"><path d="M168 474 Q166 540 165 600"/><path d="M232 474 Q234 540 235 600"/></g>
+      <path d="M200 100 L200 132" stroke-width="44"/>
+    </g>
+    <path d="M150 122 C116 128 112 160 120 200 C128 240 140 262 138 300 C136 330 134 346 140 362 C170 378 230 378 260 362 C266 346 264 330 262 300 C260 262 272 240 280 200 C288 160 284 128 250 122 C222 116 178 116 150 122 Z"/>
+    <ellipse cx="200" cy="62" rx="40" ry="44"/>
+    <ellipse cx="94" cy="360" rx="17" ry="22"/><ellipse cx="306" cy="360" rx="17" ry="22"/>
+    <ellipse cx="160" cy="612" rx="26" ry="15"/><ellipse cx="240" cy="612" rx="26" ry="15"/>
+  </g>
+  <!-- Lean soft tissue: middle layer -->
+  <g opacity=".95" fill="#7FA28C">
+    <g fill="none" stroke="#7FA28C" stroke-linecap="round">
+      <g stroke-width="30"><path d="M146 148 Q124 196 114 250"/><path d="M254 148 Q276 196 286 250"/></g>
+      <g stroke-width="23"><path d="M114 250 Q102 300 96 344"/><path d="M286 250 Q298 300 304 344"/></g>
+      <g stroke-width="48"><path d="M176 352 Q170 414 168 474"/><path d="M224 352 Q230 414 232 474"/></g>
+      <g stroke-width="32"><path d="M168 474 Q166 540 165 600"/><path d="M232 474 Q234 540 235 600"/></g>
+      <path d="M200 102 L200 132" stroke-width="28"/>
+    </g>
+    <path d="M154 132 C130 138 128 164 134 198 C140 234 150 256 150 296 C150 326 146 342 150 354 C176 366 224 366 250 354 C254 342 250 326 250 296 C250 256 260 234 266 198 C272 164 270 138 246 132 C220 126 180 126 154 132 Z"/>
+    <ellipse cx="200" cy="62" rx="31" ry="35"/>
+    <ellipse cx="95" cy="358" rx="11" ry="15"/><ellipse cx="305" cy="358" rx="11" ry="15"/>
+    <ellipse cx="160" cy="610" rx="18" ry="9"/><ellipse cx="240" cy="610" rx="18" ry="9"/>
+  </g>
+  <!-- Bone mineral content -->
+  <g fill="none" stroke="#F7F7F5" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="200" cy="58" rx="20" ry="23" fill="#F7F7F5" stroke="none"/>
+    <path d="M200 92 L200 322" stroke-width="7" stroke-dasharray="9 3" stroke-linecap="butt"/>
+    <path d="M200 136 Q176 134 152 146 M200 136 Q224 134 248 146" stroke-width="5"/>
+    <g stroke-width="4">
+      <path d="M200 160 C180 160 168 166 164 176 M200 160 C220 160 232 166 236 176"/>
+      <path d="M200 180 C178 180 164 188 160 200 M200 180 C222 180 236 188 240 200"/>
+      <path d="M200 200 C178 200 164 210 162 222 M200 200 C222 200 236 210 238 222"/>
+      <path d="M200 220 C182 220 170 230 168 242 M200 220 C218 220 230 230 232 242"/>
+    </g>
+    <path d="M200 316 C188 306 166 308 162 326 C160 342 172 354 186 354 L200 344 L214 354 C228 354 240 342 238 326 C234 308 212 306 200 316 Z" fill="#F7F7F5" stroke="none"/>
+    <g stroke-width="5">
+      <path d="M150 148 Q127 196 116 248 M116 248 Q104 298 98 340"/>
+      <path d="M250 148 Q273 196 284 248 M284 248 Q296 298 302 340"/>
+    </g>
+    <g stroke-width="7">
+      <path d="M180 352 Q173 414 170 470 M170 478 Q168 540 166 598"/>
+      <path d="M220 352 Q227 414 230 470 M230 478 Q232 540 234 598"/>
+    </g>
+  </g>
+  <g fill="#F7F7F5"><circle cx="170" cy="474" r="7.5"/><circle cx="230" cy="474" r="7.5"/><circle cx="116" cy="249" r="5"/><circle cx="284" cy="249" r="5"/></g>
+
+<rect x="0" y="388" width="400" height="44" fill="url(#beam)"/><rect x="0" y="431" width="400" height="1.5" fill="#C6B18E"/>
+<g fill="none" stroke="#C6B18E" stroke-width="2" opacity=".8"><path d="M20 40 V20 H40"/><path d="M360 20 H380 V40"/><path d="M20 620 V640 H40"/><path d="M360 640 H380 V620"/></g>
+<text x="32" y="58" style="font-family:Inter,Helvetica,Arial,sans-serif;font-size:11px;letter-spacing:2px;fill:#C6B18E">TOTAL BODY</text>
+</svg>

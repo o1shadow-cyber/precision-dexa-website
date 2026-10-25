@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /assets/social/
 
 Sitemap: https://www.precisiondexa.com/sitemap.xml

@@ -265,6 +265,7 @@
   ]
 }
 </script>
+<link rel="stylesheet" href="/assets/about-nav.css">
 </head>
 <body>
 <div style="background:#F7F7F5;min-height:100vh;font-family:Inter,system-ui,sans-serif">
@@ -279,9 +280,14 @@
         <a href="/bone-density/" style="padding:4px 0;font:400 14px/1 Inter,sans-serif">Bone Density</a>
         <a href="/complete-health-assessment/" style="padding:4px 0;font:400 14px/1 Inter,sans-serif">Complete Assessment</a>
         <a href="/corporate-wellness/" aria-current="page" style="padding:4px 0;font:400 14px/1 Inter,sans-serif">Corporate Wellness<span style="display:block;height:1px;background:#C6B18E;margin-top:5px"></span></a>
-        <a href="/#about" style="padding:4px 0;font:400 14px/1 Inter,sans-serif">About</a>
-        <a href="/#contact" style="padding:4px 0;font:400 14px/1 Inter,sans-serif">Contact</a>
-        <a href="/blog/" style="padding:4px 0;font:400 14px/1 Inter,sans-serif">Blog</a>
+        <div class="pdx-about" data-aboutnav>
+          <a href="/#about" class="pdx-about-link" aria-haspopup="true" aria-expanded="false" aria-controls="pdx-about-menu">About</a>
+          <button type="button" class="pdx-about-caret" aria-label="About menu" aria-haspopup="true" aria-expanded="false" aria-controls="pdx-about-menu"><svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true" focusable="false"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          <div id="pdx-about-menu" class="pdx-about-menu" style="display:none">
+            <a href="/#contact"><span class="pdx-mi">Contact</span></a>
+            <a href="/blog/"><span class="pdx-mi">Blog</span></a>
+          </div>
+        </div>
       </nav>
       <a data-cta="1" href="/#waitlist" data-opening-soon style="display:inline-block;background:#0D3B66;color:#F7F7F5;padding:13px 22px;font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase" class="pdx-h1">Book a Scan</a>
       <button data-burger="1" type="button" aria-label="Menu" aria-expanded="false" aria-controls="pdx-menu" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;background:none;border:1px solid #E7E1D6;padding:0;flex:none" class="pdx-h2">
@@ -294,8 +300,8 @@
         <a href="/complete-health-assessment/" style="display:block;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Complete Assessment</a>
         <a href="/corporate-wellness/" aria-current="page" style="display:block;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Corporate Wellness</a>
         <a href="/#about" style="display:block;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">About</a>
-        <a href="/#contact" style="display:block;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Contact</a>
-        <a href="/blog/" style="display:block;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Blog</a>
+        <a href="/#contact" style="display:block;padding:11px 0 11px 18px;width:100%;text-align:left;font:400 16px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Contact</a>
+        <a href="/blog/" style="display:block;padding:11px 0 11px 18px;width:100%;text-align:left;font:400 16px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Blog</a>
         <a href="/#waitlist" data-opening-soon style="display:block;margin-top:16px;width:100%;background:#0D3B66;color:#F7F7F5;padding:16px 22px;font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase" class="pdx-h1">Book a Scan</a>
     </div>
   </header>
@@ -490,5 +496,6 @@
 </script>
 
 <script src="/assets/opening-soon.js"></script>
+<script src="/assets/about-nav.js"></script>
 </body>
 </html>

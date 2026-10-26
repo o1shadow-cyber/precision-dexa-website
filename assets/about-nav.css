@@ -45,15 +45,19 @@
 [data-navlinks] .pdx-about-menu {
   position: absolute;
   top: calc(100% + 14px);
-  left: 0;
+  right: 0;
+  left: auto;
   z-index: 30;
   display: none;
   flex-direction: column;
-  min-width: 156px;
+  width: max-content;
+  min-width: 148px;
+  max-width: 220px;
   margin: 0;
   padding: 6px 0;
   background: #F7F3EC;
   border: 1px solid #E7E1D6;
+  border-radius: 10px;
   box-shadow: 0 10px 28px rgba(13, 59, 102, .14);
 }
 [data-navlinks] .pdx-about-menu::before {
@@ -82,4 +86,48 @@
   text-decoration-color: #C6B18E;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+}
+
+/* Compact mobile and tablet menu, anchored to the right of the header. */
+.pdx-menu-dim {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: rgba(13, 59, 102, .14);
+}
+.pdx-menu-dim[hidden] { display: none; }
+@media (max-width: 1240px) {
+  [data-mobilemenu] {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: clamp(12px, 4vw, 36px);
+    left: auto;
+    z-index: 45;
+    display: none;
+    width: min(280px, 80vw);
+    max-height: calc(100vh - 104px);
+    overflow: auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    margin: 0;
+    padding: 8px 0 12px;
+    background: #F7F3EC;
+    border: 1px solid #E7E1D6;
+    border-top: 3px solid #C6B18E;
+    border-radius: 12px;
+    box-shadow: 0 16px 40px rgba(13, 59, 102, .16);
+  }
+  [data-mobilemenu].is-open { display: flex; }
+  [data-mobilemenu] a:not(.pdx-h1):hover,
+  [data-mobilemenu] a:not(.pdx-h1):focus-visible {
+    color: #0D3B66;
+    text-decoration: underline;
+    text-decoration-color: #C6B18E;
+    text-underline-offset: 3px;
+  }
+  [data-mobilemenu] .pdx-h1 {
+    width: calc(100% - 28px) !important;
+    margin: 14px 14px 0 !important;
+  }
 }

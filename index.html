@@ -329,13 +329,13 @@ a.pdx-cta-btn,a.pdx-cta-btn:hover,button.pdx-cta-btn,button.pdx-cta-btn:hover{co
 
       <a data-cta="1" href="#waitlist" data-opening-soon style="display:inline-block;background:#0D3B66;color:#F7F7F5;padding:13px 22px;font:500 12px/1 Inter,sans-serif;letter-spacing:.13em;text-transform:uppercase" class="pdx-h1">Book a Scan</a>
 
-      <button data-burger="1" data-action="toggleMenu" aria-label="Menu" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;background:none;border:1px solid #E7E1D6;padding:0;flex:none" class="pdx-h2">
+      <button data-burger="1" data-action="toggleMenu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="pdx-menu" style="display:none;align-items:center;justify-content:center;width:42px;height:42px;background:none;border:1px solid #E7E1D6;padding:0;flex:none" class="pdx-h2">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D3B66" stroke-width="1.6" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
       </button>
     </div>
 
     <sc-if data-if="menuOpen">
-      <div data-mobilemenu="1" style="border-top:1px solid #E7E1D6;background:#F7F7F5;padding:14px clamp(20px,5vw,56px) 24px;display:flex;flex-direction:column;align-items:flex-start;gap:2px">
+      <div id="pdx-menu" data-mobilemenu="1">
         <a href="/body-composition/" style="display:block;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Body Composition</a>
         <a href="/bone-density/" style="display:block;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Bone Density</a>
         <a href="/complete-health-assessment/" style="display:block;padding:13px 0;width:100%;text-align:left;font:400 17px/1.3 Georgia,serif;color:#0D3B66;border-bottom:1px solid #E7E1D6">Complete Assessment</a>
@@ -1301,6 +1301,12 @@ a.pdx-cta-btn,a.pdx-cta-btn:hover,button.pdx-cta-btn,button.pdx-cta-btn:hover{co
       var key = el.getAttribute('data-if');
       el.style.display = flags[key] ? 'contents' : 'none';
     });
+    var menu = document.querySelector('[data-mobilemenu]');
+    var burger = document.querySelector('[data-burger]');
+    if (menu) menu.classList.toggle('is-open', !!state.menuOpen);
+    if (burger) burger.setAttribute('aria-expanded', state.menuOpen ? 'true' : 'false');
+    var dim = document.querySelector('.pdx-menu-dim');
+    if (dim) dim.hidden = !state.menuOpen;
   }
 
   function startTimer(){
@@ -1369,6 +1375,11 @@ a.pdx-cta-btn,a.pdx-cta-btn:hover,button.pdx-cta-btn,button.pdx-cta-btn:hover{co
       render();
     }
   }
+
+  document.addEventListener('pdx-menu-set', function(e){
+    state.menuOpen = !!(e.detail && e.detail.open);
+    render();
+  });
 
   document.body.addEventListener('click', function(e){
     var jump = e.target.closest('[data-jump]');

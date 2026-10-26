@@ -104,14 +104,15 @@
     left: auto;
     z-index: 45;
     display: none;
-    width: min(280px, 80vw);
+    box-sizing: border-box;
+    width: min(320px, 88vw);
     max-height: calc(100vh - 104px);
     overflow: auto;
     flex-direction: column;
     align-items: stretch;
-    gap: 0;
+    gap: 0 !important;
     margin: 0;
-    padding: 8px 0 12px;
+    padding: 12px 0;
     background: #F7F3EC;
     border: 1px solid #E7E1D6;
     border-top: 3px solid #C6B18E;
@@ -120,17 +121,21 @@
   }
   [data-mobilemenu].is-open { display: flex; }
   [data-mobilemenu] > a:not(.pdx-h1) {
-    padding: 13px 20px !important;
+    box-sizing: border-box;
+    display: flex !important;
+    align-items: center;
+    min-height: 52px;
+    padding: 0 24px !important;
     border-bottom: 0 !important;
     background-image: linear-gradient(#E7E1D6, #E7E1D6);
     background-repeat: no-repeat;
-    background-size: calc(100% - 40px) 1px;
+    background-size: calc(100% - 48px) 1px;
     background-position: center bottom;
   }
   [data-mobilemenu] > a[href="#contact"],
   [data-mobilemenu] > a[href="/#contact"],
   [data-mobilemenu] > a[href="/blog/"] {
-    padding: 11px 20px 11px 36px !important;
+    padding: 0 24px 0 40px !important;
   }
   [data-mobilemenu] a:not(.pdx-h1):hover,
   [data-mobilemenu] a:not(.pdx-h1):focus-visible {
@@ -140,7 +145,8 @@
     text-underline-offset: 3px;
   }
   [data-mobilemenu] .pdx-h1 {
+    box-sizing: border-box;
     width: calc(100% - 40px) !important;
-    margin: 16px 20px 4px !important;
+    margin: 16px 20px 8px !important;
   }
 }

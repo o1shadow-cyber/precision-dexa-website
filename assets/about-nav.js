@@ -132,4 +132,77 @@
       closeMenu(root);
     });
   });
+
+  var dim = document.createElement("div");
+  dim.className = "pdx-menu-dim";
+  dim.hidden = true;
+  document.body.appendChild(dim);
+
+  function mobileMenu() {
+    return document.querySelector("[data-mobilemenu]");
+  }
+
+  function burgerButton() {
+    return document.querySelector("[data-burger]");
+  }
+
+  function homepageOwnsMenu() {
+    return !!document.querySelector('sc-if[data-if="menuOpen"]');
+  }
+
+  function syncDim(open) {
+    dim.hidden = !open;
+  }
+
+  function setMobile(open) {
+    syncDim(open);
+    if (homepageOwnsMenu()) {
+      document.dispatchEvent(new CustomEvent("pdx-menu-set", { detail: { open: !!open } }));
+      return;
+    }
+    var menu = mobileMenu();
+    var button = burgerButton();
+    if (menu) menu.classList.toggle("is-open", !!open);
+    if (button) button.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+
+  function menuIsOpen() {
+    var menu = mobileMenu();
+    return !!(menu && menu.classList.contains("is-open"));
+  }
+
+  function insideMenu(event) {
+    var menu = mobileMenu();
+    if (!menu) return false;
+    var rect = menu.getBoundingClientRect();
+    return event.clientX >= rect.left && event.clientX <= rect.right && event.clientY >= rect.top && event.clientY <= rect.bottom;
+  }
+
+  dim.addEventListener("click", function () {
+    setMobile(false);
+  });
+
+  document.addEventListener("click", function (event) {
+    var menu = mobileMenu();
+    var button = burgerButton();
+    if (!menu) return;
+    if (button && button.contains(event.target)) {
+      syncDim(menu.classList.contains("is-open"));
+      return;
+    }
+    if (event.target.closest && event.target.closest("[data-mobilemenu] a")) {
+      setMobile(false);
+      return;
+    }
+    if (!menuIsOpen()) return;
+    if (insideMenu(event)) return;
+    setMobile(false);
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape" || !menuIsOpen()) return;
+    setMobile(false);
+    var button = burgerButton();
+    if (button) button.focus();
+  });
 })();

@@ -119,6 +119,19 @@
     box-shadow: 0 16px 40px rgba(13, 59, 102, .16);
   }
   [data-mobilemenu].is-open { display: flex; }
+  [data-mobilemenu] > a:not(.pdx-h1) {
+    padding: 13px 20px !important;
+    border-bottom: 0 !important;
+    background-image: linear-gradient(#E7E1D6, #E7E1D6);
+    background-repeat: no-repeat;
+    background-size: calc(100% - 40px) 1px;
+    background-position: center bottom;
+  }
+  [data-mobilemenu] > a[href="#contact"],
+  [data-mobilemenu] > a[href="/#contact"],
+  [data-mobilemenu] > a[href="/blog/"] {
+    padding: 11px 20px 11px 36px !important;
+  }
   [data-mobilemenu] a:not(.pdx-h1):hover,
   [data-mobilemenu] a:not(.pdx-h1):focus-visible {
     color: #0D3B66;
@@ -127,7 +140,7 @@
     text-underline-offset: 3px;
   }
   [data-mobilemenu] .pdx-h1 {
-    width: calc(100% - 28px) !important;
-    margin: 14px 14px 0 !important;
+    width: calc(100% - 40px) !important;
+    margin: 16px 20px 4px !important;
   }
 }

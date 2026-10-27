@@ -58,8 +58,8 @@
   .gw-window { margin: 18px 0 0; max-width: 46em; font: 400 clamp(16px, 1.2vw, 18px)/1.6 Inter, sans-serif; color: #33424C; text-wrap: pretty; }
   .gw-window time { color: #0D3B66; font-weight: 600; white-space: nowrap; }
   .gw-nopurchase { margin: 22px 0 0; max-width: 68ch; padding: 14px 16px; background: #EFE3CC; border-left: 3px solid #C6B18E; font: 500 15px/1.55 Inter, sans-serif; color: #0D3B66; }
-  .gw-split { max-width: 1120px; margin: clamp(32px, 4vw, 48px) auto 0; display: grid; grid-template-columns: minmax(240px, 420px) minmax(0, 1fr); grid-template-areas: "figure enter" "figure meta" "figure rules"; column-gap: clamp(28px, 4vw, 56px); row-gap: 22px; align-items: start; }
-  .gw-figure { grid-area: figure; position: sticky; top: 98px; margin: 0; }
+  .gw-split { max-width: 1120px; margin: clamp(32px, 4vw, 48px) auto 0; display: grid; grid-template-columns: minmax(240px, 420px) minmax(0, 1fr); grid-template-areas: "figure enter" "figure meta" "rules rules"; column-gap: clamp(28px, 4vw, 56px); row-gap: 22px; align-items: start; }
+  .gw-figure { grid-area: figure; margin: 0; }
   .gw-figure img { width: 100%; height: auto; display: block; border: 1px solid #C6B18E; background: #0D3B66; }
   .gw-figure figcaption { margin-top: 10px; font: 400 13px/1.5 Inter, sans-serif; color: #5A6068; }
   .gw-enter { grid-area: enter; background: #fff; border: 1px solid #E7E1D6; border-top: 3px solid #0D3B66; padding: clamp(22px, 3vw, 28px); }
@@ -72,7 +72,7 @@
   .gw-meta { grid-area: meta; background: #EFE3CC; border: 2px solid #C6B18E; padding: clamp(22px, 3vw, 28px); }
   .gw-meta p, .gw-lead { margin: 12px 0 0; font: 400 16.5px/1.7 Inter, sans-serif; color: #33424C; text-wrap: pretty; }
   .gw-meta p { margin: 12px 0 0; color: #0D3B66; font-weight: 500; }
-  .gw-rules { grid-area: rules; min-width: 0; }
+  .gw-rules { grid-area: rules; min-width: 0; max-width: 820px; margin-top: 12px; }
   .gw-updated { margin: 10px 0 0; font: 500 13px/1 Inter, sans-serif; letter-spacing: .06em; text-transform: uppercase; color: #5A6068; }
   .gw-list { margin: 22px 0 0; padding: 0 0 0 1.7em; }
   .gw-list > li { margin: 0; padding: 16px 0 16px 8px; border-top: 1px solid #E7E1D6; font: 400 16.5px/1.7 Inter, sans-serif; color: #33424C; text-wrap: pretty; }
@@ -83,7 +83,6 @@
   .gw-list > li.is-meta { background: #EFE3CC; border: 2px solid #C6B18E; padding: 16px 16px 16px 10px; margin-top: 8px; }
   @media (max-width: 860px) {
     .gw-split { grid-template-columns: 1fr; grid-template-areas: "enter" "meta" "figure" "rules"; }
-    .gw-figure { position: static; }
     .gw-figure img { max-width: 440px; }
     .gw-window time { white-space: normal; }
   }
@@ -195,7 +194,7 @@
 
       <section class="gw-rules" id="official-rules" aria-labelledby="rules-title">
         <h2 id="rules-title">Precision Dexa “Free DEXA Body Composition Scan” Giveaway: Official Rules</h2>
-        <p class="gw-updated"><time datetime="2026-10-27">Last updated October 27, 2026</time></p>
+        <p class="gw-updated"><time datetime="2026-10-27">Last updated October 27, 2026.</time></p>
         <p class="gw-lead">These are the official rules for this giveaway.</p>
         <ol class="gw-list">
           <li><p><strong>Sponsor.</strong> Precision Dexa, Suite 14, 19550 SE Brady Rd, Camas, WA 98607 (inside CLASH Beauty Collective). Contact: <a href="mailto:welcome@precisiondexa.com">welcome@precisiondexa.com</a>.</p></li>

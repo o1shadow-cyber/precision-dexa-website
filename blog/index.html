@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog | Precision Dexa</title>
-<meta name="description" content="News, tips and guides about DEXA scans from Precision Dexa in Camas, WA.">
+<title>The Precision Pulse | Precision Dexa Blog</title>
+<meta name="description" content="News, tips and guides on body composition and bone health from Precision Dexa in Camas, WA.">
 <meta name="theme-color" content="#F7F3EC">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
@@ -12,8 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Precision Dexa">
 <meta property="og:url" content="https://www.precisiondexa.com/blog/">
-<meta property="og:title" content="Blog | Precision Dexa">
-<meta property="og:description" content="News, tips and guides about DEXA scans from Precision Dexa in Camas, WA.">
+<meta property="og:title" content="The Precision Pulse | Precision Dexa Blog">
+<meta property="og:description" content="News, tips and guides on body composition and bone health from Precision Dexa in Camas, WA.">
 <meta property="og:image" content="https://www.precisiondexa.com/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -48,14 +48,35 @@
   .pdx-blog h1, .pdx-blog h2 { font-family: "Playfair Display", Georgia, serif; font-weight: 400; color: #0D3B66; }
   .pdx-post-card { background: #fff; border: 1px solid #E7E1D6; border-top: 3px solid #C6B18E; padding: clamp(24px,3vw,36px); }
   .pdx-news { background: #0D3B66; border-top: 4px solid #C6B18E; padding: clamp(28px,4vw,40px); }
+  .pdx-pulse { position: relative; overflow: hidden; background: #0D3B66; color: #F7F3EC; padding: clamp(32px,4.5vw,56px) clamp(20px,5vw,56px) clamp(40px,5.5vw,72px); }
+  .pdx-pulse-watermark { position: absolute; right: -6%; top: 50%; width: min(520px, 62vw); height: auto; transform: translateY(-52%) rotate(8deg); opacity: .16; pointer-events: none; user-select: none; }
+  .pdx-pulse-veil { position: absolute; inset: 0; background: linear-gradient(90deg, #0D3B66 0%, rgba(13,59,102,.94) 46%, rgba(13,59,102,.55) 72%, rgba(13,59,102,.28) 100%); pointer-events: none; }
+  .pdx-pulse-inner { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
+  .pdx-pulse .pdx-crumb { margin: 0; font: 500 11px/1.4 Inter, sans-serif; letter-spacing: .22em; text-transform: uppercase; color: #EFE3CC; }
+  .pdx-pulse .pdx-crumb a { color: #EFE3CC; }
+  .pdx-pulse .pdx-crumb a:hover { color: #C6B18E; }
+  .pdx-pulse-lockup { display: flex; align-items: flex-end; gap: 6px; margin-top: 26px; }
+  .pdx-pulse-line { width: min(168px, 34vw); height: 28px; display: block; flex: none; margin-bottom: 6px; }
+  .pdx-pulse-leaf { width: clamp(64px, 8vw, 88px); height: auto; display: block; flex: none; }
+  .pdx-blog .pdx-pulse h1 { margin: 12px 0 0; font: 400 clamp(46px, 6.2vw, 78px)/0.98 "Playfair Display", Georgia, serif; letter-spacing: -.025em; color: #F7F3EC; }
+  .pdx-pulse-rule { width: 84px; height: 1px; margin: 20px 0 0; background: #C6B18E; }
+  .pdx-pulse-tag { margin: 16px 0 0; max-width: 38em; font: 400 clamp(16px, 1.3vw, 18.5px)/1.65 Inter, sans-serif; color: #EFE3CC; }
+  .pdx-pulse :focus-visible { outline-color: #C6B18E; }
+  @media (max-width: 640px) {
+    .pdx-pulse-watermark { right: -28%; width: 280px; opacity: .12; }
+    .pdx-pulse-veil { background: linear-gradient(180deg, rgba(13,59,102,.2) 0%, rgba(13,59,102,.55) 42%, #0D3B66 68%); }
+    .pdx-pulse-lockup { margin-top: 20px; }
+    .pdx-pulse-line { width: 96px; }
+    .pdx-blog .pdx-pulse h1 { font-size: clamp(38px, 11vw, 48px); }
+  }
 </style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Precision Dexa Blog",
+  "name": "The Precision Pulse",
   "url": "https://www.precisiondexa.com/blog/",
-  "description": "News, tips and guides about DEXA scans from Precision Dexa in Camas, WA.",
+  "description": "News, tips and guides on body composition and bone health from Precision Dexa in Camas, WA.",
   "publisher": {
     "@type": "Organization",
     "name": "Precision Dexa",
@@ -117,11 +138,18 @@
   </header>
 
 <main class="pdx-blog">
-  <section style="padding:clamp(56px,7vw,96px) clamp(20px,5vw,56px) clamp(28px,4vw,40px)">
-    <div style="max-width:800px;margin:0 auto">
-      <p style="margin:0;font:500 11px/1.4 Inter,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#5E7F6B"><a href="/" style="color:#5E7F6B">Home</a> · Blog</p>
-      <h1 style="margin:18px 0 0;font:400 clamp(40px,5vw,64px)/1.08 'Playfair Display',Georgia,serif;letter-spacing:-.02em;color:#0D3B66">Blog</h1>
-      <p style="margin:18px 0 0;max-width:42em;font:400 18px/1.7 Inter,sans-serif;color:#33424C">News, tips and guides about DEXA scans from Precision Dexa in Camas, WA.</p>
+  <section class="pdx-pulse" aria-labelledby="pulse-title">
+    <img class="pdx-pulse-watermark" src="/assets/precision-dexa-leaf.svg" alt="" width="112" height="112">
+    <div class="pdx-pulse-veil" aria-hidden="true"></div>
+    <div class="pdx-pulse-inner">
+      <nav class="pdx-crumb" aria-label="Breadcrumb"><a href="/">Home</a> <span aria-hidden="true">·</span> <span aria-current="page">Blog</span></nav>
+      <div class="pdx-pulse-lockup">
+        <svg class="pdx-pulse-line" viewBox="0 0 168 28" aria-hidden="true" focusable="false"><path d="M1 16 H62 L74 16 L84 4 L96 24 L106 12 L116 16 H167" fill="none" stroke="#C6B18E" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <img class="pdx-pulse-leaf" src="/assets/precision-dexa-leaf.svg" alt="" width="88" height="88">
+      </div>
+      <h1 id="pulse-title">The Precision<br> Pulse</h1>
+      <div class="pdx-pulse-rule" aria-hidden="true"></div>
+      <p class="pdx-pulse-tag">News, tips and guides on body composition and bone health from Precision Dexa in Camas, WA.</p>
     </div>
   </section>
 

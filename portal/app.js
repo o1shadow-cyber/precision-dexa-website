@@ -1267,8 +1267,8 @@
 
   var STUDIO_NAME = 'Precision Dexa';
   var STUDIO_ADDRESS = 'Suite 14, 19550 SE Brady Rd, Camas WA';
-  var HSA_LINE = 'HSA/FSA cards accepted. Eligibility depends on your plan; some services may require a letter of medical necessity. Itemized receipts and superbills available.';
-  var REIMBURSE_NOTE = 'Submit to your insurer or HSA/FSA administrator for possible reimbursement.';
+  var RECORDS_LINE = 'Download itemized receipts and superbills for your records.';
+  var REIMBURSE_NOTE = 'Submit to your insurer for possible reimbursement.';
   var CPT_NOTE = '[PLACEHOLDER, confirm with billing]';
 
   function money(n) { return '$' + Number(n).toFixed(2); }
@@ -1313,7 +1313,7 @@
         docRow('Ordering provider', esc(v.orderingProvider)) +
       '</dl>' +
       (v.amountNote ? '<p class="doc-note">' + esc(v.amountNote) + '</p>' : '') +
-      '<p class="doc-note">' + esc(HSA_LINE) + '</p>';
+      '<p class="doc-note">' + esc(RECORDS_LINE) + '</p>';
   }
   function superbillHtml(v, c) {
     return '<p class="eyebrow">Superbill</p>' +
@@ -1336,7 +1336,7 @@
         '<li><span class="strong">76499</span> Unlisted procedure, often used for DXA body composition <span class="doc-ph">' + esc(CPT_NOTE) + '</span></li>' +
       '</ul>' +
       '<p class="doc-note">' + esc(REIMBURSE_NOTE) + '</p>' +
-      '<p class="doc-note">' + esc(HSA_LINE) + '</p>';
+      '<p class="doc-note">' + esc(RECORDS_LINE) + '</p>';
   }
   function viewReceipts(id, kind) {
     if (!state.data.scans) state.data.scans = [];
@@ -1359,7 +1359,7 @@
     }).join('') : '<div class="card"><p>Your receipts and superbills will appear here after your first scan. Each document lists that scan’s date of service.</p></div>';
     return shell('receipts',
       pageHead({ view: 'receipts', eyebrow: 'Billing', title: 'Receipts & Superbills', sub: 'Sample documents for this preview. Nothing here is sent to a bank or an insurer.', badge: list.length ? (list.length + (list.length === 1 ? ' visit' : ' visits')) : 'No visits yet' }) +
-      '<p class="small muted">' + esc(HSA_LINE) + '</p>' +
+      '<p class="small muted">' + esc(RECORDS_LINE) + '</p>' +
       '<div class="stack-lg">' + cards + '</div>'
     );
   }

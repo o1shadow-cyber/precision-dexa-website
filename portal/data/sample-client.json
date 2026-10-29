@@ -150,7 +150,7 @@
         "service": "Diagnostic DEXA Bone Density Scan",
         "amountPaid": 175.0,
         "amountNote": "Sample amount for this preview. Published bone-density pricing is not set yet.",
-        "paymentMethod": "HSA/FSA card",
+        "paymentMethod": "Visa ending 4242",
         "orderingProvider": "[PLACEHOLDER]"
       }
     },

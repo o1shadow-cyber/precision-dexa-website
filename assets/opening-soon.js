@@ -33,6 +33,7 @@
       '<h2 id="pdx-soon-title">We\'re opening soon!</h2>' +
       '<p id="pdx-soon-body">Thank you so much for your interest in booking a scan. We\'re putting the finishing touches on the studio and can\'t wait to welcome you. Join our waitlist and you\'ll be among the first to book when we open, with early booking access for waitlist members.</p>' +
       '<p id="pdx-soon-offer">Join the waitlist by January 31, 2027 for 35% off. We\'ll email your code for single-scan early-customer pricing before we open.</p>' +
+      '<p id="pdx-soon-referral">No referral needed. Every scan requires a provider order, and if you don\'t have one, our nurse practitioner can provide it.</p>' +
       '<div class="pdx-soon-actions">' +
         '<a class="pdx-soon-join" href="' + waitlistHref + '">Join the Waitlist</a>' +
         '<button type="button" class="pdx-soon-later">Maybe later</button>' +

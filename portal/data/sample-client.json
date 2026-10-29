@@ -1,0 +1,254 @@
+{
+  "client": {
+    "id": "cl_0001",
+    "firstName": "Megan",
+    "lastName": "Hart",
+    "email": "megan.hart@example.com",
+    "phone": "(360) 555-0148",
+    "address": "1200 Sample Lane, Camas, WA 98607",
+    "dateOfBirth": "1985-03-14",
+    "heightIn": 66,
+    "memberSince": "2025-11-18",
+    "studio": "Precision Dexa · Camas, WA",
+    "preferences": {
+      "showComparisons": true
+    }
+  },
+  "nextScan": {
+    "recommendedWeekOf": "2026-12-14",
+    "intervalWeeks": 16,
+    "bookingUrl": "#/appointment",
+    "appointment": {
+      "date": "2026-12-15",
+      "time": "9:30 AM",
+      "service": "DEXA Body Composition scan",
+      "with": "Amber, RT(R)",
+      "place": "Suite 14, 19550 SE Brady Rd, Camas WA",
+      "status": "Scheduled",
+      "note": "Sample appointment for this preview. It is not booked in a real calendar."
+    }
+  },
+  "goals": [
+    {
+      "id": "g1",
+      "label": "Bring body fat to about 27%",
+      "metric": "bodyFatPct",
+      "kind": "reduce",
+      "start": 33.6,
+      "target": 27.0,
+      "due": "by spring",
+      "setOn": "2025-11-18",
+      "setWith": "Amber"
+    },
+    {
+      "id": "g2",
+      "label": "Add 3 lb of lean muscle",
+      "metric": "leanMassLb",
+      "kind": "increase",
+      "start": 103.2,
+      "target": 106.2,
+      "due": "by spring",
+      "setOn": "2025-11-18",
+      "setWith": "Amber"
+    },
+    {
+      "id": "g3",
+      "label": "Keep bone density steady",
+      "metric": "bmdGcm2",
+      "kind": "maintain",
+      "start": 1.108,
+      "target": 1.108,
+      "due": "ongoing",
+      "setOn": "2025-11-18",
+      "setWith": "Amber"
+    }
+  ],
+  "scans": [
+    {
+      "id": "sc_004",
+      "number": 4,
+      "kind": "body-composition",
+      "service": "DEXA Body Composition scan",
+      "date": "2026-10-20",
+      "reviewedBy": "Amber",
+      "reportUrl": null,
+      "weightLb": 156.8,
+      "fatMassLb": 46.4,
+      "leanMassLb": 104.6,
+      "bmcLb": 5.8,
+      "bodyFatPct": 29.6,
+      "vatLb": 1.18,
+      "bmdGcm2": 1.115,
+      "regions": {
+        "armRight": { "leanLb": 5.9, "fatPct": 33.6 },
+        "armLeft": { "leanLb": 5.6, "fatPct": 34.1 },
+        "legRight": { "leanLb": 18.4, "fatPct": 32.7 },
+        "legLeft": { "leanLb": 18.1, "fatPct": 33.0 },
+        "trunk": { "leanLb": 50.2, "fatPct": 28.9 }
+      },
+      "notes": {
+        "author": "Amber",
+        "date": "2026-10-20",
+        "paragraphs": [
+          "Since March, fat mass is down another 4.4 lb and lean mass is up 0.7 lb, so body fat is 29.6%. You are a little past halfway from 33.6% toward the 27% goal.",
+          "Visceral fat is 1.18 lb, down from 1.52 lb at your first visit. Your legs are still even side to side, and the right arm is a bit leaner than the left, which is common.",
+          "The July hip and spine visit stays its own record. This one is the body composition follow-up."
+        ],
+        "plan": [
+          "Keep three strength sessions a week, with some single-arm and single-leg work.",
+          "Aim for protein at each meal, around 110 g a day.",
+          "Your next visit is already on the calendar for December 15. Come in at the same time of day, well hydrated."
+        ]
+      },
+      "percentiles": {
+        "reference": { "sex": "female", "ageBand": "40–49", "source": "NHANES DEXA reference, as reported by the scan software" },
+        "bodyFatPct": 58,
+        "leanMassLb": 62,
+        "vatLb": 44
+      },
+      "billing": {
+        "service": "DEXA Body Composition scan",
+        "amountPaid": 96.85,
+        "paymentMethod": "Mastercard ending 1881",
+        "orderingProvider": "[PLACEHOLDER]"
+      }
+    },
+    {
+      "id": "sc_003",
+      "number": 3,
+      "kind": "bone-density",
+      "service": "Diagnostic DEXA Bone Density Scan",
+      "date": "2026-07-07",
+      "reviewedBy": "Amber",
+      "reportUrl": null,
+      "sites": [
+        { "id": "spine", "label": "Lumbar spine, L1–L4", "bmd": 1.142, "tScore": -0.4, "zScore": -0.2 },
+        { "id": "neck", "label": "Femoral neck", "bmd": 0.912, "tScore": -0.6, "zScore": -0.3 },
+        { "id": "hip", "label": "Total hip", "bmd": 0.968, "tScore": -0.3, "zScore": 0.1 }
+      ],
+      "radiologistSummary": {
+        "date": "2026-07-08",
+        "paragraphs": [
+          "Sample radiologist report summary. This is not a real report, and it is not a diagnosis.",
+          "DXA of the lumbar spine and hip. T-scores: lumbar spine L1–L4 −0.4, femoral neck −0.6, total hip −0.3. Z-scores: −0.2, −0.3, and +0.1.",
+          "Bone mineral density is within the expected range for a woman in her early 40s. No earlier diagnostic study was available for comparison. Clinical correlation is recommended. Share a real report with your doctor; this paragraph is only a preview of the layout."
+        ]
+      },
+      "notes": {
+        "author": "Amber",
+        "date": "2026-07-07",
+        "paragraphs": [
+          "Today was your Diagnostic DEXA Bone Density Scan of the hip and spine, not a body composition visit. Positioning used the same table marks as your body composition scans.",
+          "The sample radiologist summary is on this page. A downloadable PDF is not part of this preview."
+        ],
+        "plan": [
+          "Read the sample summary with your doctor when you are ready.",
+          "Keep your fall body composition visit. It does not replace this study."
+        ]
+      },
+      "billing": {
+        "service": "Diagnostic DEXA Bone Density Scan",
+        "amountPaid": 175.0,
+        "amountNote": "Sample amount for this preview. Published bone-density pricing is not set yet.",
+        "paymentMethod": "Visa ending 4242",
+        "orderingProvider": "[PLACEHOLDER]"
+      }
+    },
+    {
+      "id": "sc_002",
+      "number": 2,
+      "kind": "body-composition",
+      "service": "DEXA Body Composition scan",
+      "date": "2026-03-10",
+      "reviewedBy": "Amber",
+      "reportUrl": null,
+      "weightLb": 160.6,
+      "fatMassLb": 50.8,
+      "leanMassLb": 103.9,
+      "bmcLb": 5.9,
+      "bodyFatPct": 31.6,
+      "vatLb": 1.34,
+      "bmdGcm2": 1.111,
+      "regions": {
+        "armRight": { "leanLb": 5.7, "fatPct": 35.2 },
+        "armLeft": { "leanLb": 5.4, "fatPct": 35.8 },
+        "legRight": { "leanLb": 18.2, "fatPct": 34.4 },
+        "legLeft": { "leanLb": 17.9, "fatPct": 34.8 },
+        "trunk": { "leanLb": 50.4, "fatPct": 31.6 }
+      },
+      "notes": {
+        "author": "Amber",
+        "date": "2026-03-10",
+        "paragraphs": [
+          "Fat mass is down 4.3 lb since November and lean mass is up 0.7 lb. Body fat moved from 33.6% to 31.6%.",
+          "Visceral fat is 1.34 lb, down from 1.52 lb. Most of the change is through the trunk, and your legs are still close side to side."
+        ],
+        "plan": [
+          "Move from two strength sessions a week to three.",
+          "Add a protein source at breakfast.",
+          "If you want the hip and spine study, we can schedule the Diagnostic DEXA Bone Density Scan this summer."
+        ]
+      },
+      "percentiles": {
+        "reference": { "sex": "female", "ageBand": "40–49", "source": "NHANES DEXA reference, as reported by the scan software" },
+        "bodyFatPct": 66,
+        "leanMassLb": 58,
+        "vatLb": 54
+      },
+      "billing": {
+        "service": "DEXA Body Composition scan",
+        "amountPaid": 96.85,
+        "paymentMethod": "Visa ending 4242",
+        "orderingProvider": "[PLACEHOLDER]"
+      }
+    },
+    {
+      "id": "sc_001",
+      "number": 1,
+      "kind": "body-composition",
+      "service": "DEXA Body Composition scan",
+      "date": "2025-11-18",
+      "reviewedBy": "Amber",
+      "reportUrl": null,
+      "weightLb": 164.2,
+      "fatMassLb": 55.1,
+      "leanMassLb": 103.2,
+      "bmcLb": 5.9,
+      "bodyFatPct": 33.6,
+      "vatLb": 1.52,
+      "bmdGcm2": 1.108,
+      "regions": {
+        "armRight": { "leanLb": 5.6, "fatPct": 37.4 },
+        "armLeft": { "leanLb": 5.3, "fatPct": 38.1 },
+        "legRight": { "leanLb": 18.0, "fatPct": 36.2 },
+        "legLeft": { "leanLb": 17.7, "fatPct": 36.6 },
+        "trunk": { "leanLb": 50.2, "fatPct": 34.1 }
+      },
+      "notes": {
+        "author": "Amber",
+        "date": "2025-11-18",
+        "paragraphs": [
+          "Welcome, Megan. This DEXA Body Composition scan is your baseline, the starting point the later body composition visits are compared against.",
+          "Body fat is 33.6%, visceral fat is 1.52 lb, and lean mass is 103.2 lb. Your legs are even side to side."
+        ],
+        "plan": [
+          "Two strength sessions a week to start.",
+          "Add a protein source at breakfast.",
+          "Come back in about four months, at the same time of day and well hydrated."
+        ]
+      },
+      "percentiles": {
+        "reference": { "sex": "female", "ageBand": "40–49", "source": "NHANES DEXA reference, as reported by the scan software" },
+        "bodyFatPct": 74,
+        "leanMassLb": 54,
+        "vatLb": 63
+      },
+      "billing": {
+        "service": "DEXA Body Composition scan",
+        "amountPaid": 96.85,
+        "paymentMethod": "Visa ending 4242",
+        "orderingProvider": "[PLACEHOLDER]"
+      }
+    }
+  ]
+}

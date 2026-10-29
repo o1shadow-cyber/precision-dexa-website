@@ -1,0 +1,250 @@
+{
+  "client": {
+    "id": "cl_0001",
+    "firstName": "Megan",
+    "lastName": "Hart",
+    "email": "megan.hart@example.com",
+    "phone": "(360) 555-0148",
+    "dateOfBirth": "1985-03-14",
+    "heightIn": 66,
+    "memberSince": "2026-06-02",
+    "studio": "Precision Dexa \u00b7 Camas, WA",
+    "preferences": {
+      "showComparisons": true
+    }
+  },
+  "nextScan": {
+    "recommendedWeekOf": "2026-12-28",
+    "intervalWeeks": 10,
+    "bookingUrl": "#book"
+  },
+  "goals": [
+    {
+      "id": "g1",
+      "label": "Bring body fat to about 27%",
+      "metric": "bodyFatPct",
+      "kind": "reduce",
+      "start": 32.8,
+      "target": 27.0,
+      "due": "by spring",
+      "setOn": "2026-06-02",
+      "setWith": "Amber"
+    },
+    {
+      "id": "g2",
+      "label": "Add 3 lb of lean muscle",
+      "metric": "leanMassLb",
+      "kind": "increase",
+      "start": 103.3,
+      "target": 106.3,
+      "due": "by spring",
+      "setOn": "2026-06-02",
+      "setWith": "Amber"
+    },
+    {
+      "id": "g3",
+      "label": "Keep bone density steady",
+      "metric": "bmdGcm2",
+      "kind": "maintain",
+      "start": 1.112,
+      "target": 1.112,
+      "due": "ongoing",
+      "setOn": "2026-06-02",
+      "setWith": "Amber"
+    }
+  ],
+  "scans": [
+    {
+      "id": "sc_003",
+      "number": 3,
+      "date": "2026-10-20",
+      "reviewedBy": "Amber",
+      "reportUrl": null,
+      "weightLb": 156.8,
+      "fatMassLb": 46.4,
+      "leanMassLb": 104.6,
+      "bmcLb": 5.8,
+      "bodyFatPct": 29.6,
+      "vatLb": 1.18,
+      "bmdGcm2": 1.115,
+      "regions": {
+        "armRight": {
+          "leanLb": 5.9,
+          "fatPct": 33.6
+        },
+        "armLeft": {
+          "leanLb": 5.6,
+          "fatPct": 34.1
+        },
+        "legRight": {
+          "leanLb": 18.4,
+          "fatPct": 32.7
+        },
+        "legLeft": {
+          "leanLb": 18.1,
+          "fatPct": 33.0
+        },
+        "trunk": {
+          "leanLb": 50.2,
+          "fatPct": 28.9
+        }
+      },
+      "notes": {
+        "author": "Amber",
+        "date": "2026-10-20",
+        "paragraphs": [
+          "Megan, this was a really solid ten weeks. You lost 3 lb of fat while adding almost a pound of lean mass, so the scale only tells part of the story. Most of the change came through your trunk, and your legs are nicely even side to side.",
+          "Your right arm carrying a bit more lean than your left is very typical. If you want to even it out, single-arm work is an easy add."
+        ],
+        "plan": [
+          "Keep three strength sessions a week. Swap one for single-arm and single-leg moves.",
+          "Aim for protein at each meal, around 110 g a day, to support lean gains.",
+          "Rescan the week of Dec 28. Come in at the same time of day, well hydrated, for the cleanest comparison."
+        ]
+      },
+      "percentiles": {
+        "reference": {
+          "sex": "female",
+          "ageBand": "40\u201349",
+          "source": "NHANES DEXA reference, as reported by the scan software"
+        },
+        "bodyFatPct": 58,
+        "leanMassLb": 61,
+        "vatLb": 45
+      },
+      "billing": {
+        "service": "DEXA Body Composition scan",
+        "amountPaid": 96.85,
+        "paymentMethod": "Mastercard ending 1881",
+        "orderingProvider": "[PLACEHOLDER]"
+      }
+    },
+    {
+      "id": "sc_002",
+      "number": 2,
+      "date": "2026-08-11",
+      "reviewedBy": "Amber",
+      "reportUrl": null,
+      "weightLb": 159.0,
+      "fatMassLb": 49.4,
+      "leanMassLb": 103.8,
+      "bmcLb": 5.8,
+      "bodyFatPct": 31.1,
+      "vatLb": 1.31,
+      "bmdGcm2": 1.114,
+      "regions": {
+        "armRight": {
+          "leanLb": 5.8,
+          "fatPct": 34.9
+        },
+        "armLeft": {
+          "leanLb": 5.5,
+          "fatPct": 35.3
+        },
+        "legRight": {
+          "leanLb": 18.2,
+          "fatPct": 34.0
+        },
+        "legLeft": {
+          "leanLb": 17.9,
+          "fatPct": 34.4
+        },
+        "trunk": {
+          "leanLb": 50.0,
+          "fatPct": 30.8
+        }
+      },
+      "notes": {
+        "author": "Amber",
+        "date": "2026-08-11",
+        "paragraphs": [
+          "Great first round, Megan. Fat mass is down almost 4 lb and lean mass nudged up, which is exactly the direction we hoped for."
+        ],
+        "plan": [
+          "Move from two to three strength sessions a week.",
+          "Add a protein source to breakfast.",
+          "Rescan in about 10 weeks."
+        ]
+      },
+      "percentiles": {
+        "reference": {
+          "sex": "female",
+          "ageBand": "40\u201349",
+          "source": "NHANES DEXA reference, as reported by the scan software"
+        },
+        "bodyFatPct": 64,
+        "leanMassLb": 57,
+        "vatLb": 52
+      },
+      "billing": {
+        "service": "DEXA Body Composition scan",
+        "amountPaid": 96.85,
+        "paymentMethod": "HSA/FSA card",
+        "orderingProvider": "[PLACEHOLDER]"
+      }
+    },
+    {
+      "id": "sc_001",
+      "number": 1,
+      "date": "2026-06-02",
+      "reviewedBy": "Amber",
+      "reportUrl": null,
+      "weightLb": 162.4,
+      "fatMassLb": 53.3,
+      "leanMassLb": 103.3,
+      "bmcLb": 5.8,
+      "bodyFatPct": 32.8,
+      "vatLb": 1.42,
+      "bmdGcm2": 1.112,
+      "regions": {
+        "armRight": {
+          "leanLb": 5.7,
+          "fatPct": 36.2
+        },
+        "armLeft": {
+          "leanLb": 5.4,
+          "fatPct": 36.8
+        },
+        "legRight": {
+          "leanLb": 18.1,
+          "fatPct": 35.1
+        },
+        "legLeft": {
+          "leanLb": 17.8,
+          "fatPct": 35.6
+        },
+        "trunk": {
+          "leanLb": 49.8,
+          "fatPct": 32.9
+        }
+      },
+      "notes": {
+        "author": "Amber",
+        "date": "2026-06-02",
+        "paragraphs": [
+          "Welcome, Megan. This scan is your baseline, the starting point every future scan is compared against."
+        ],
+        "plan": [
+          "Two strength sessions a week to start.",
+          "Rescan in about 10 weeks."
+        ]
+      },
+      "percentiles": {
+        "reference": {
+          "sex": "female",
+          "ageBand": "40\u201349",
+          "source": "NHANES DEXA reference, as reported by the scan software"
+        },
+        "bodyFatPct": 71,
+        "leanMassLb": 55,
+        "vatLb": 60
+      },
+      "billing": {
+        "service": "DEXA Body Composition scan",
+        "amountPaid": 96.85,
+        "paymentMethod": "Visa ending 4242",
+        "orderingProvider": "[PLACEHOLDER]"
+      }
+    }
+  ]
+}

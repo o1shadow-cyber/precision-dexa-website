@@ -1360,7 +1360,7 @@
     return shell('receipts',
       pageHead({ view: 'receipts', eyebrow: 'Billing', title: 'Receipts & Superbills', sub: 'Sample documents for this preview. Nothing here is sent to a bank or an insurer.', badge: list.length ? (list.length + (list.length === 1 ? ' visit' : ' visits')) : 'No visits yet' }) +
       '<p class="small muted">' + esc(RECORDS_LINE) + '</p>' +
-      '<div class="stack-lg">' + cards + '</div>'
+      '<div class="visit-list">' + cards + '</div>'
     );
   }
 

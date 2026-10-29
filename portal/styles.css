@@ -28,7 +28,7 @@
 
   --r-sm: 4px; --r-md: 6px; --r-lg: 8px;
   --gutter: 20px;
-  --nav-w: 248px;
+  --nav-w: 276px;
   --tabbar-h: 78px;
   --tb-h: 80px;
 }
@@ -71,7 +71,7 @@ p { margin: 0; }
 
 /* Mobile: fixed bottom tab bar with safe-area padding. */
 .tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); min-height: var(--tabbar-h); padding: 6px 4px calc(6px + env(safe-area-inset-bottom)); background: var(--white); border-top: 1px solid var(--line); box-shadow: 0 -1px 0 rgba(13, 59, 102, .04); }
-.tab { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; min-height: 52px; text-decoration: none; font-size: 11px; font-weight: 500; color: var(--muted); text-align: center; }
+.tab { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 2px; min-height: 52px; padding-top: 8px; text-decoration: none; font-size: 11px; font-weight: 500; color: var(--muted); text-align: center; }
 .tab-label { display: block; line-height: 1.15; max-width: 100%; }
 .tab .ico { display: flex; padding: 3px 16px; border-radius: 999px; }
 .tab svg { width: 22px; height: 22px; }
@@ -85,8 +85,9 @@ p { margin: 0; }
   .brand img { height: 44px; }
   .side { display: flex; flex-direction: column; gap: 20px; position: sticky; top: 73px; align-self: start; height: calc(100vh - 73px); padding: 28px 18px; background: var(--white); border-right: 1px solid var(--line); }
   .tabs { position: static; display: flex; flex-direction: column; gap: 2px; min-height: 0; padding: 0; border-top: 0; background: transparent; box-shadow: none; }
-  .tab { flex-direction: row; justify-content: flex-start; gap: 12px; min-height: 46px; padding: 0 14px; border-radius: var(--r-sm); font-size: 15px; }
-  .tab .ico { padding: 0; background: none !important; }
+  .tab { flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; min-height: 46px; padding: 0 14px; border-radius: var(--r-sm); font-size: 15px; text-align: left; }
+  .tab-label { white-space: nowrap; text-align: left; line-height: 1.2; }
+  .tab .ico { padding: 0; background: none !important; flex: none; }
   .tab[aria-current="page"] { background: var(--cream); box-shadow: inset 3px 0 0 var(--gold); }
   .side-extra { display: flex; flex-direction: column; gap: 14px; margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); }
   .side-extra .tagline { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--gold-ink); }
@@ -570,8 +571,15 @@ html.modal-open, html.modal-open body { overflow: hidden; }
 .consents legend + * { clear: both; }
 
 /* Receipts and superbills */
-.doc-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.doc-actions { display: flex; flex-wrap: wrap; gap: 16px; }
+.visit-list { display: flex; flex-direction: column; gap: 32px; }
+.visit-card { padding: 26px 24px 24px; display: flex; flex-direction: column; gap: 8px; }
+.visit-card .doc-actions { margin-top: 16px; gap: 16px; }
 .visit-card .doc-actions .btn { min-height: 44px; padding: 10px 14px; letter-spacing: .06em; white-space: normal; text-align: center; }
+@media (max-width: 720px) {
+  .visit-card .doc-actions { flex-direction: column; align-items: stretch; }
+  .visit-card .doc-actions .btn { width: 100%; }
+}
 .doc-sheet { background: var(--white); border: 1px solid var(--line); border-top: 4px solid var(--gold); border-radius: var(--r-md); padding: 28px 22px 24px; max-width: 720px; display: flex; flex-direction: column; gap: 16px; }
 .doc-brand { display: flex; align-items: center; gap: 14px; }
 .doc-brand img { height: 40px; width: auto; }

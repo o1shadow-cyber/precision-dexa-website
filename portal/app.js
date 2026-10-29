@@ -247,8 +247,8 @@
     acct.consentLog.push({ type: type, granted: rec.granted, at: rec.at, version: rec.version, text: rec.text, source: source });
   }
   function seedDemo(sample) {
-    if (getAccount(DEMO_EMAIL)) return;
-    var c = sample.client, at = '2026-10-27T09:00:00-07:00';
+    // Refresh the sample profile on each load so the preview stays the designed Megan Hart record.
+    var c = sample.client, at = '2025-11-18T10:00:00-08:00';
     var a = {
       id: c.id, email: DEMO_EMAIL, firstName: c.firstName, lastName: c.lastName, phone: c.phone, dateOfBirth: c.dateOfBirth,
       salt: DEMO_SALT, passwordHash: DEMO_HASH, createdAt: at, isDemo: true, consentVersion: CONSENT_VERSION,
@@ -256,7 +256,7 @@
         terms: consentRecord(true, at, 'terms'),
         healthData: consentRecord(true, at, 'healthData'),
         marketingEmail: consentRecord(true, at, 'marketingEmail'),
-        sms: consentRecord(false, at, 'sms', { phone: null, disclosure: CONSENT_TEXT.smsDisclosure })
+        sms: consentRecord(true, at, 'sms', { phone: c.phone, disclosure: CONSENT_TEXT.smsDisclosure })
       },
       consentLog: []
     };
@@ -689,8 +689,8 @@
       '<div class="side">' +
         '<nav class="tabs" aria-label="Portal">' + tabs + '</nav>' +
         '<div class="side-extra">' +
-          '<a class="btn btn-primary btn-block" href="' + esc(D.nextScan.bookingUrl) + '">' + ICON.calendar + 'Book a scan</a>' +
-          '<p class="small">' + (D.nextScan.recommendedWeekOf ? 'Next scan recommended the week of ' + esc(fmtShort(D.nextScan.recommendedWeekOf)) + '.' : 'Book your first scan to start tracking.') + '</p>' +
+          '<a class="btn btn-primary btn-block" href="' + (appointment() ? '#/appointment' : esc(D.nextScan.bookingUrl)) + '">' + ICON.calendar + (appointment() ? 'View appointment' : 'Book a scan') + '</a>' +
+          '<p class="small">' + (appointment() ? esc(fmtShort(appointment().date) + ' · ' + appointment().time + ' · ' + appointment().service) + '.' : (D.nextScan.recommendedWeekOf ? 'Next scan recommended the week of ' + esc(fmtShort(D.nextScan.recommendedWeekOf)) + '.' : 'Book your first scan to start tracking.')) + '</p>' +
           '<p class="tagline">Measure. Understand. Thrive.</p>' +
         '</div>' +
       '</div>' +
@@ -756,8 +756,25 @@
     );
   }
 
+  function isBody(s) { return !!(s && s.kind !== 'bone-density' && s.bodyFatPct != null); }
+  function bodyScans() { return (state.data.scans || []).filter(isBody); }
+  function serviceName(s) { return (s && s.service) || 'DEXA Body Composition scan'; }
+  function scoreText(n) { var v = Number(n); return (v > 0 ? '+' : v < 0 ? '−' : '') + Math.abs(v).toFixed(1); }
+  function appointment() { return state.data.nextScan && state.data.nextScan.appointment; }
+  function nextCard() {
+    var next = state.data.nextScan, ap = appointment();
+    if (!ap) {
+      return '<section class="next">' + LEAF_NAVY + '<p class="eyebrow">Next scan recommended</p><h2>Week of ' + esc(fmtShort(next.recommendedWeekOf)) + '</h2>' +
+        '<p>About ' + weeksBetween(bodyScans()[0].date, next.recommendedWeekOf) + ' weeks after your last scan, a good interval for seeing meaningful change.</p>' +
+        '<a class="btn btn-gold" href="' + esc(next.bookingUrl) + '" style="margin-top:auto">Book your scan</a></section>';
+    }
+    return '<section class="next">' + LEAF_NAVY + '<p class="eyebrow">' + esc(ap.status) + '</p><h2>' + esc(fmtDate(ap.date, { weekday: 'short', month: 'short', day: 'numeric' })) + '</h2>' +
+      '<p>' + esc(ap.time) + ' · ' + esc(ap.service) + ' with ' + esc(ap.with) + '.</p>' +
+      '<a class="btn btn-gold" href="#/appointment" style="margin-top:auto">View appointment</a></section>';
+  }
+
   function viewDashboard() {
-    var D = state.data, s = D.scans, cur = s[0], prev = s[1];
+    var D = state.data, s = D.scans, body = bodyScans(), cur = body[0] || s[0], prev = body[1];
     var hour = new Date().getHours();
     var greet = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
     var cards = METRIC_ORDER.map(function (k) {
@@ -790,15 +807,14 @@
     }).join('');
 
     var next = D.nextScan;
-    var weeks = weeksBetween(cur.date, next.recommendedWeekOf);
     return shell('home',
       pageHead({
         view: 'home',
-        eyebrow: 'Scan ' + cur.number + ' of ' + s.length + ' · ' + fmtShort(cur.date),
+        eyebrow: 'Visit ' + cur.number + ' of ' + s.length + ' · ' + fmtShort(cur.date),
         title: greet + ', ' + D.client.firstName,
         sub: 'Your latest DEXA Body Composition scan was ' + fmtLong(cur.date) + '.',
         badge: 'Latest scan · ' + fmtDate(cur.date, { month: 'short', day: 'numeric', year: 'numeric' }),
-        chips: ['Latest scan ' + fmtShort(cur.date), s.length + ' scans completed', 'Next scan week of ' + fmtShort(next.recommendedWeekOf)],
+        chips: ['Latest scan ' + fmtShort(cur.date), s.length + ' visits', appointment() ? appointment().status + ' ' + fmtShort(appointment().date) : 'Next scan week of ' + fmtShort(next.recommendedWeekOf)],
         ring: headlineGoal(cur)
       }) +
       '<section class="metrics" aria-label="Headline numbers">' + cards + '</section>' +
@@ -808,9 +824,7 @@
           '<a class="btn btn-outline" href="#/scans/' + esc(cur.id) + '">View full ' + esc(fmtShort(cur.date)) + ' results<span aria-hidden="true">→</span></a>' +
         '</section>' +
         (goals ? '<section class="card stack-lg"><div class="row" style="align-items:baseline"><h2 class="h2" style="font-size:22px">Your goals</h2><a class="small strong" href="#/profile" style="min-height:44px;display:inline-flex;align-items:center">All goals</a></div>' + goals + '</section>' : '') +
-        '<section class="next">' + LEAF_NAVY + '<p class="eyebrow">Next scan recommended</p><h2>Week of ' + esc(fmtShort(next.recommendedWeekOf)) + '</h2>' +
-          '<p>About ' + weeks + ' weeks after your last scan, a good interval for seeing meaningful change.</p>' +
-          '<a class="btn btn-gold" href="' + esc(next.bookingUrl) + '" style="margin-top:auto">Book your scan</a></section>' +
+        nextCard() +
       '</div>' +
       '<p class="disclaimer boxed">' + esc(DISCLAIMER) + '</p>'
     );
@@ -836,7 +850,7 @@
   function viewProgress(key) {
     if (!METRICS[key]) key = 'bodyFatPct';
     var m = METRICS[key];
-    var scans = state.data.scans.slice().reverse(); // oldest first
+    var scans = bodyScans().slice().reverse(); // oldest first, body composition only
     var first = scans[0], last = scans[scans.length - 1];
     var seg = METRIC_ORDER.map(function (k) {
       return '<button type="button" data-metric="' + k + '" aria-pressed="' + (k === key) + '">' + METRICS[k].short + '</button>';
@@ -854,7 +868,7 @@
       '</section>';
     }).join('');
 
-    var rows = state.data.scans.map(function (s, i, arr) {
+    var rows = bodyScans().map(function (s, i, arr) {
       var older = arr[i + 1];
       var c = older ? change(key, older[key], s[key]) : null;
       var tag = 'Scan ' + esc(s.number) + (i === 0 ? ' · latest' : '') + (!older ? ' · baseline' : '');
@@ -866,7 +880,7 @@
     // Desktop: every scan with all four metrics in one table.
     var table = '<div class="table-wrap list" style="overflow-x:auto"><table class="scan-table"><caption class="eyebrow" style="text-align:left;padding:14px 16px">Scan by scan</caption><thead><tr><th scope="col">Scan</th>' +
       METRIC_ORDER.map(function (k) { return '<th scope="col">' + METRICS[k].label + '</th>'; }).join('') + '</tr></thead><tbody>' +
-      state.data.scans.map(function (s, i, arr) {
+      bodyScans().map(function (s, i, arr) {
         var older = arr[i + 1];
         return '<tr><th scope="row" style="background:none;text-transform:none;letter-spacing:0;font-size:14px"><a href="#/scans/' + esc(s.id) + '" class="strong">' + esc(fmtDate(s.date)) + '</a><span class="small muted" style="display:block;font-weight:400">Scan ' + esc(s.number) + (!older ? ' · baseline' : '') + '</span></th>' +
           METRIC_ORDER.map(function (k) {
@@ -882,8 +896,9 @@
         title: 'Your progress',
         sub: scans.length + ' scans · ' + fmtDate(first.date, { month: 'long', day: 'numeric' }) + ' to ' + fmtDate(last.date, { month: 'long', day: 'numeric', year: 'numeric' }),
         badge: 'Latest scan · ' + fmtDate(last.date, { month: 'short', day: 'numeric', year: 'numeric' }),
-        chips: [scans.length + ' scans completed', fmtShort(first.date) + ' to ' + fmtDate(last.date, { month: 'short', day: 'numeric', year: 'numeric' })]
+        chips: [scans.length + ' body composition scans', fmtShort(first.date) + ' to ' + fmtDate(last.date, { month: 'short', day: 'numeric', year: 'numeric' })]
       }) +
+      '<p class="small muted">Trends use the DEXA Body Composition scans. The Diagnostic DEXA Bone Density Scan is in History and is not plotted here.</p>' +
       '<div class="seg" role="group" aria-label="Choose a metric">' + seg + '</div>' +
       '<div class="progress-grid">' +
         '<div class="trend-grid">' + trends + '</div>' +
@@ -902,7 +917,7 @@
   function drawChart(el) {
     var key = el.getAttribute('data-chart');
     var m = METRICS[key];
-    var scans = state.data.scans.slice().reverse();
+    var scans = bodyScans().slice().reverse();
     var vals = scans.map(function (s) { return s[key]; });
     var g = goalFor(key);
     var target = g && g.kind !== 'maintain' ? g.target : null;
@@ -941,11 +956,47 @@
       '<div class="fold-body">' + body + '</div></details>';
   }
 
+  function viewBoneScan(s, scans) {
+    var sites = (s.sites || []).map(function (site) {
+      return '<div class="card stack" style="gap:6px"><p class="eyebrow">' + esc(site.label) + '</p>' +
+        '<p class="lead" style="font-size:28px">' + Number(site.bmd).toFixed(3) + ' <small style="font-size:16px">g/cm²</small></p>' +
+        '<p>T-score <span class="strong">' + esc(scoreText(site.tScore)) + '</span> · Z-score <span class="strong">' + esc(scoreText(site.zScore)) + '</span></p></div>';
+    }).join('');
+    var report = s.radiologistSummary;
+    var reportHtml = report ? '<section class="notes" aria-label="Sample radiologist report summary">' +
+      '<div class="who"><span class="avatar" aria-hidden="true">R</span><div class="stack" style="gap:2px"><span class="h3">Sample radiologist report summary</span><span class="small muted">Sample data · ' + esc(fmtDate(report.date)) + '</span></div></div>' +
+      leafDivider() +
+      report.paragraphs.map(function (p) { return '<p class="para">' + esc(p) + '</p>'; }).join('') +
+    '</section>' : '';
+    var n = s.notes;
+    var notes = n ? '<section class="card stack-lg"><p class="eyebrow">From Amber</p>' +
+      n.paragraphs.map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') +
+      '<p class="byline">— ' + esc(byline(n.author)) + '</p></section>' : '';
+    return shell('history',
+      '<div class="row"><a class="back" href="#/history">' + ICON.back + 'History</a>' +
+      '<a class="btn btn-ghost btn-sm" href="#/receipts/' + esc(s.id) + '/receipt">Receipt</a></div>' +
+      pageHead({
+        view: 'scan',
+        eyebrow: serviceName(s),
+        title: fmtDate(s.date, { month: 'long', day: 'numeric', year: 'numeric' }),
+        sub: 'Hip and spine. Sample scores for this preview, not a diagnosis.',
+        badge: 'Visit ' + s.number + ' of ' + scans.length,
+        chips: ['Hip and spine', 'Sample radiologist summary']
+      }) +
+      '<section class="metrics" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))" aria-label="Hip and spine scores">' + sites + '</section>' +
+      reportHtml +
+      notes +
+      '<p class="disclaimer boxed">Sample data only. T-scores and Z-scores on this page are for the Diagnostic DEXA Bone Density Scan preview. They are not a diagnosis. A real report is read with your doctor. ' + esc(DISCLAIMER) + '</p>'
+    );
+  }
+
   function viewScan(id) {
     var scans = state.data.scans;
     var i = scans.findIndex(function (s) { return s.id === id; });
     if (i < 0) return viewNotFound();
-    var s = scans[i], prev = scans[i + 1];
+    var s = scans[i];
+    if (s.kind === 'bone-density') return viewBoneScan(s, scans);
+    var prev = scans.slice(i + 1).filter(isBody)[0];
     function delta(field, dir, dec) {
       if (!prev) return '<span class="chg-steady">Baseline</span>';
       var df = s[field] - prev[field];
@@ -1010,7 +1061,7 @@
       (s.reportUrl ? '<a class="icon-btn" href="' + esc(s.reportUrl) + '" aria-label="Download PDF report">' + ICON.download + '</a>' : '<button type="button" class="icon-btn" aria-label="Download PDF report (coming soon)" disabled>' + ICON.download + '</button>') + '</div>' +
       pageHead({
         view: 'scan',
-        eyebrow: 'DEXA Body Composition scan · Scan ' + s.number + ' of ' + scans.length,
+        eyebrow: serviceName(s) + ' · Visit ' + s.number + ' of ' + scans.length,
         title: fmtDate(s.date, { month: 'long', day: 'numeric', year: 'numeric' }),
         sub: (prev ? 'Compared with your ' + fmtShort(prev.date) + ' scan, ' + weeksBetween(prev.date, s.date) + ' weeks earlier' : 'Your baseline scan') + (s.reviewedBy ? ' · Reviewed with ' + s.reviewedBy : ''),
         badge: 'Scan ' + s.number + ' of ' + scans.length,
@@ -1087,7 +1138,17 @@
     var D = state.data, scans = D.scans;
     var first = scans[scans.length - 1];
     var cards = scans.map(function (s, i) {
-      var older = scans[i + 1];
+      if (s.kind === 'bone-density') {
+        var hip = (s.sites || []).filter(function (x) { return x.id === 'hip'; })[0] || (s.sites || [])[2] || {};
+        var spine = (s.sites || []).filter(function (x) { return x.id === 'spine'; })[0] || (s.sites || [])[0] || {};
+        return '<a class="card scan-card" href="#/scans/' + esc(s.id) + '">' +
+          '<div class="stack" style="gap:2px"><span class="date">' + esc(fmtDate(s.date)) + '</span><span class="small muted">' + esc(serviceName(s)) + '</span></div>' +
+          '<div class="mini"><span>Spine T<strong>' + esc(scoreText(spine.tScore)) + '</strong><span class="chg-steady">L1–L4</span></span>' +
+          '<span>Hip T<strong>' + esc(scoreText(hip.tScore)) + '</strong><span class="chg-steady">Total hip</span></span>' +
+          '<span class="x">Neck T<strong>' + esc(scoreText(((s.sites || [])[1] || {}).tScore)) + '</strong><span class="chg-steady">Femoral neck</span></span></div>' +
+          '<span class="badge-slot">' + ICON.chev + '</span></a>';
+      }
+      var older = scans.slice(i + 1).filter(isBody)[0];
       function cell(label, k, extra) {
         var c = older ? change(k, older[k], s[k]) : null;
         return '<span' + (extra ? ' class="x"' : '') + '>' + label + '<strong>' + withUnit(k, s[k]) + '</strong>' + (c ? '<span class="chg-' + c.tone + '">' + esc(c.text) + '</span>' : '<span aria-label="Starting point">—</span>') + '</span>';
@@ -1095,7 +1156,7 @@
       var w = older ? (s.weightLb - older.weightLb) : null;
       var badge = i === 0 ? '<span class="pill dark">Latest</span>' : (!older ? '<span class="pill steady">Baseline</span>' : '');
       return '<a class="card scan-card" href="#/scans/' + esc(s.id) + '">' +
-        '<div class="stack" style="gap:2px"><span class="date">' + esc(fmtDate(s.date)) + '</span><span class="small muted">Scan ' + esc(s.number) + (older ? (s.reviewedBy ? ' · Reviewed with ' + esc(s.reviewedBy) : '') : ' · Your baseline') + '</span></div>' +
+        '<div class="stack" style="gap:2px"><span class="date">' + esc(fmtDate(s.date)) + '</span><span class="small muted">' + esc(serviceName(s)) + (older ? '' : ' · Baseline') + '</span></div>' +
         '<div class="mini">' + cell('Body fat', 'bodyFatPct') + cell('Lean', 'leanMassLb') + cell('Visceral', 'vatLb', true) + cell('Bone', 'bmdGcm2', true) +
         '<span>Weight<strong>' + Number(s.weightLb).toFixed(1) + ' lb</strong><span class="chg-steady">' + (w == null ? '—' : (w < 0 ? '↓ ' : '↑ ') + Math.abs(w).toFixed(1) + ' lb') + '</span></span></div>' +
         '<span class="badge-slot" data-badge>' + badge + ICON.chev + '</span>' +
@@ -1109,13 +1170,15 @@
         title: 'Scan history',
         sub: scans.length + ' scans since ' + fmtDate(first.date, { month: 'long', year: 'numeric' }) + ' · about every ' + next.intervalWeeks + ' weeks',
         badge: scans.length + ' scans since ' + fmtDate(first.date, { month: 'short', year: 'numeric' }),
-        chips: [scans.length + ' scans completed', 'About every ' + next.intervalWeeks + ' weeks', 'Next scan week of ' + fmtShort(next.recommendedWeekOf)]
+        chips: [scans.length + ' visits', 'About every ' + next.intervalWeeks + ' weeks', appointment() ? 'Next visit ' + fmtShort(appointment().date) : 'Next scan week of ' + fmtShort(next.recommendedWeekOf)]
       }) +
       '<div class="history-grid">' +
         '<aside class="history-aside">' +
-          '<div class="upnext">' + LEAF_NAVY + '<span class="eyebrow">Up next</span><div class="row-cta"><span class="when">Week of ' + esc(fmtShort(next.recommendedWeekOf)) + '</span>' +
-          '<a class="btn btn-gold btn-sm" href="' + esc(next.bookingUrl) + '">Book</a></div><p>Same time of day and well hydrated gives the cleanest comparison.</p></div>' +
-          '<div class="panel stack small"><p class="eyebrow">Your reports</p><p class="muted" style="font-size:14px">Each scan includes a downloadable PDF report from the studio.</p></div>' +
+          '<div class="upnext">' + LEAF_NAVY + '<span class="eyebrow">' + (appointment() ? esc(appointment().status) : 'Up next') + '</span><div class="row-cta"><span class="when">' +
+          (appointment() ? esc(fmtShort(appointment().date) + ' · ' + appointment().time) : 'Week of ' + esc(fmtShort(next.recommendedWeekOf))) + '</span>' +
+          '<a class="btn btn-gold btn-sm" href="#/appointment">' + (appointment() ? 'View' : 'Book') + '</a></div><p>' +
+          (appointment() ? esc(appointment().service) + ' with ' + esc(appointment().with) + '.' : 'Same time of day and well hydrated gives the cleanest comparison.') + '</p></div>' +
+          '<div class="panel stack small"><p class="eyebrow">Your reports</p><p class="muted" style="font-size:14px">Sample preview. Open a visit for Amber’s notes. The bone-density visit includes a sample radiologist summary. PDF files are not part of this preview.</p></div>' +
         '</aside>' +
         '<div class="history-list">' + cards + '</div>' +
       '</div>' +
@@ -1124,7 +1187,7 @@
   }
 
   function viewProfile() {
-    var D = state.data, c = D.client, cur = D.scans[0];
+    var D = state.data, c = D.client, cur = bodyScans()[0] || D.scans[0];
     var goals = D.goals.map(function (g) {
       var gp = goalProgress(g, cur[g.metric]);
       return '<div class="card stack-lg" style="gap:10px"><div class="row" style="align-items:baseline"><span class="strong" style="font-size:15px">' + esc(g.label) + '</span><span class="small muted">' + esc(g.due) + '</span></div>' + gp.html + '</div>';
@@ -1140,7 +1203,7 @@
         title: c.firstName + ' ' + c.lastName,
         sub: 'Member since ' + fmtDate(c.memberSince, { month: 'long', year: 'numeric' }) + ' · ' + D.scans.length + (D.scans.length === 1 ? ' scan' : ' scans'),
         badge: 'Member since ' + fmtDate(c.memberSince, { month: 'short', year: 'numeric' }),
-        chips: ['Member since ' + fmtDate(c.memberSince, { month: 'short', year: 'numeric' }), D.scans.length + ' scans completed', nextWk ? 'Next scan week of ' + fmtShort(nextWk) : 'First scan not booked yet']
+        chips: ['Member since ' + fmtDate(c.memberSince, { month: 'short', year: 'numeric' }), D.scans.length + ' visits', appointment() ? 'Next visit ' + fmtShort(appointment().date) : (nextWk ? 'Next scan week of ' + fmtShort(nextWk) : 'First scan not booked yet')]
       }) +
       '<div class="profile-grid">' +
         '<section class="stack-lg"><div class="row" style="align-items:baseline"><h2 class="h2">Your goals</h2><a href="#/profile" class="strong" style="font-size:14px;min-height:44px;display:flex;align-items:center">Edit</a></div>' +
@@ -1148,13 +1211,16 @@
         '<div class="stack-lg"><h2 class="h2">Account</h2><dl class="list" style="margin:0">' +
           '<div class="kv"><dt>Email</dt><dd>' + esc(c.email) + '</dd></div>' +
           '<div class="kv"><dt>Mobile phone</dt><dd>' + (c.phone ? esc(c.phone) : '<span class="muted">Not added</span>') + '</dd></div>' +
+          '<div class="kv"><dt>Home address</dt><dd>' + (c.address ? esc(c.address) : '<span class="muted">Not added</span>') + '</dd></div>' +
           '<div class="kv"><dt>Date of birth</dt><dd>' + esc(fmtDate(c.dateOfBirth)) + '</dd></div>' +
           '<div class="kv"><dt>Height</dt><dd>' + (hasHeight ? ft + '′ ' + inch + '″' : '<span class="muted">Measured at your first scan</span>') + '</dd></div>' +
           '<div class="kv"><dt>Studio</dt><dd>' + esc(c.studio) + '</dd></div>' +
+          (appointment() ? '<div class="kv"><dt>Next visit</dt><dd><a href="#/appointment">' + esc(fmtLong(appointment().date) + ' · ' + appointment().time) + '</a></dd></div>' : '') +
         '</dl>' +
         commPrefs() +
         '<h2 class="h2" style="margin-top:10px">Account settings</h2>' +
         '<nav class="list" aria-label="Account settings">' +
+          '<a class="link-row" href="#/appointment">Upcoming appointment<span aria-hidden="true">→</span></a>' +
           '<a class="link-row" href="#/receipts">Receipts &amp; Superbills<span aria-hidden="true">→</span></a>' +
           '<a class="link-row" href="#/profile">Privacy and your data<span aria-hidden="true">→</span></a>' +
           '<a class="link-row" href="' + SITE_URL + '">Back to precisiondexa.com<span aria-hidden="true">↗</span></a>' +
@@ -1214,6 +1280,7 @@
         date: s.date,
         service: b.service || 'DEXA Body Composition scan',
         amount: b.amountPaid,
+        amountNote: b.amountNote || '',
         paymentMethod: b.paymentMethod || '[PLACEHOLDER]',
         orderingProvider: b.orderingProvider || '[PLACEHOLDER]'
       };
@@ -1245,6 +1312,7 @@
         docRow('Payment method', esc(v.paymentMethod)) +
         docRow('Ordering provider', esc(v.orderingProvider)) +
       '</dl>' +
+      (v.amountNote ? '<p class="doc-note">' + esc(v.amountNote) + '</p>' : '') +
       '<p class="doc-note">' + esc(HSA_LINE) + '</p>';
   }
   function superbillHtml(v, c) {
@@ -1296,6 +1364,35 @@
     );
   }
 
+  function viewAppointment() {
+    var ap = appointment();
+    if (!ap) return shell('home', '<section class="stack"><h1 class="title">No visit is scheduled</h1><p class="muted"><a href="#/">Back to your dashboard</a></p></section>');
+    return shell('home',
+      pageHead({
+        view: 'appointment',
+        eyebrow: ap.status,
+        title: 'Your upcoming visit',
+        sub: ap.note,
+        badge: fmtDate(ap.date, { month: 'short', day: 'numeric', year: 'numeric' }),
+        chips: [ap.time, ap.service]
+      }) +
+      '<section class="card accent stack-lg">' +
+        '<p class="eyebrow">Sample appointment</p>' +
+        '<h2 class="h2">' + esc(fmtLong(ap.date)) + '</h2>' +
+        '<dl class="list" style="margin:0">' +
+          '<div class="kv"><dt>Time</dt><dd>' + esc(ap.time) + '</dd></div>' +
+          '<div class="kv"><dt>Service</dt><dd>' + esc(ap.service) + '</dd></div>' +
+          '<div class="kv"><dt>With</dt><dd>' + esc(ap.with) + '</dd></div>' +
+          '<div class="kv"><dt>Where</dt><dd>' + esc(ap.place) + '</dd></div>' +
+          '<div class="kv"><dt>Status</dt><dd>' + esc(ap.status) + '</dd></div>' +
+        '</dl>' +
+        '<p>Wear comfortable clothes without metal. Come well hydrated, at a similar time of day to your last body composition scan, so the comparison stays fair.</p>' +
+        '<p class="small muted">This is sample data. Nothing is sent to a booking system.</p>' +
+        '<a class="btn btn-outline" href="#/">Back to your dashboard<span aria-hidden="true">→</span></a>' +
+      '</section>'
+    );
+  }
+
   function viewNotFound() {
     return shell('home', '<section class="stack"><h1 class="title">We couldn’t find that page</h1><p class="muted"><a href="#/">Back to your dashboard</a></p></section>');
   }
@@ -1333,6 +1430,7 @@
       case 'history': html = viewHistory(); break;
       case 'scans': html = viewScan(decodeURIComponent(parts[1] || '')); break;
       case 'receipts': html = viewReceipts(parts[1], parts[2]); break;
+      case 'appointment': html = viewAppointment(); break;
       case 'profile': html = viewProfile(); break;
       default: html = viewNotFound();
     }
@@ -1342,7 +1440,7 @@
     if (main && route.ran) main.focus({ preventScroll: true });
     window.scrollTo(0, 0);
     route.ran = true;
-    document.title = ({ signin: 'Sign in', '': 'Dashboard', progress: 'Progress', history: 'Scan history', scans: 'Scan results', receipts: 'Receipts & Superbills', profile: 'Profile' }[page] || 'Client portal') + ' · Precision Dexa';
+    document.title = ({ signin: 'Sign in', '': 'Dashboard', progress: 'Progress', history: 'Scan history', scans: 'Scan results', receipts: 'Receipts & Superbills', appointment: 'Upcoming appointment', profile: 'Profile' }[page] || 'Client portal') + ' · Precision Dexa';
   }
 
   // ---------- Events ----------

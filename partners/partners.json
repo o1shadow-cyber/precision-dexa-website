@@ -1,0 +1,15 @@
+{
+  "howToAdd": "Copy an object in partners to add a business. Set sample to false once they approve being listed. Put logo files in /partners/logos/ and point logo at that path. Use a neutral image until a real logo is approved. Leave instagram as an empty string to hide the Instagram link.",
+  "partners": [
+    {
+      "name": "Cloud Chiropractic Clinic",
+      "specialty": "Chiropractic",
+      "description": "Longer appointments, thorough evaluations and personalized care in Camas.",
+      "website": "https://www.cloudchiropracticclinic.com/",
+      "instagram": "https://www.instagram.com/cloud.chiropractic.clinic/",
+      "logo": "/partners/logos/placeholder.svg",
+      "logoAlt": "Placeholder logo",
+      "sample": true
+    }
+  ]
+}
